@@ -99,12 +99,25 @@ Instructions supplémentaires pour Claude Code. Shopify ignore ce dossier
 |-----------------|-------------------------------------------------------------------|
 | `ui-ux-pro-max` | Bonnes pratiques UI/UX : accessibilité, responsive, typographie, animations, structure des pages |
 | `brand`         | Identité de marque : ton des textes, règles d'utilisation du logo, cohérence |
+| `emil-design-eng` | Finitions premium : survol, clic, détails qui rendent un site « haut de gamme » |
+| `animate`       | Créer une animation : utile ou non, durée, courbe, sortie            |
+| `animation-performance` | Animations fluides, sans saccades                            |
+| `review-animations` | Relecture critique des animations avant validation               |
+| `mobile-native` | Confort sur téléphone : zoom des champs, encoche, tap, carrousels    |
+| `animation-vocabulary` | Retrouver le nom exact d'un effet décrit avec des mots simples |
+| `learn-taste`   | Transformer tes corrections de design en règles écrites (`DESIGN.md`) |
 
-Source : pack open source « UI UX Pro Max » (licence MIT, Next Level
-Builder). Les tests internes du pack ont été retirés. Autres skills du pack
-non installées pour l'instant (`design`, `design-system`, `ui-styling`,
-`banner-design`, `slides`) : elles visent d'autres outils (Tailwind, React,
-présentations) ou des services d'IA payants avec clé API.
+Sources (licence MIT, fichiers texte uniquement) :
+
+- pack « UI UX Pro Max » (Next Level Builder) : `ui-ux-pro-max`, `brand`.
+  Tests internes retirés. Non installées : `design`, `design-system`,
+  `ui-styling`, `banner-design`, `slides` (autres outils comme Tailwind/React,
+  présentations, ou services d'IA payants avec clé API).
+- pack « Skills » d'Emil Kowalski : les 7 autres skills ci-dessus.
+  Non installées : `animate-expo`, `ask-sonner`, `write-swift`, `gestures`,
+  `apple-design`, `pick-ui-library`, `prototype`, `ask-emil`, `break-ui`,
+  `choreograph`, `find-animation-opportunities`, `improve-animations`,
+  `remove-animations` (applications mobiles, React, Swift, ou doublons).
 
 **Règles de priorité :**
 
