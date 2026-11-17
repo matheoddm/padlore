@@ -158,6 +158,8 @@ a:not(.button):not(.link--text):not(.full-unstyled-link) {
   }
 
   .header--mobile-center > .header__heading-link {
+    /* Detach from the grid cell so 50% means the middle of the whole header. */
+    grid-area: auto;
     position: absolute;
     top: 50%;
     left: 50%;
