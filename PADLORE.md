@@ -25,6 +25,9 @@ officiel **Dawn 16.1.1** de Shopify (licence MIT, voir `LICENSE.md`).
 - Boutons : violet `#8B5CF6` avec texte blanc sur les sections claires,
   boutons blancs avec texte noir sur les sections sombres et violettes.
   Forme arrondie (pilule), léger enfoncement au clic.
+  Exception validée : dans le hero (fond noir), le bouton principal est violet
+  `#8B5CF6` avec texte blanc (survol `#7C3AED`), le secondaire transparent à
+  contour blanc.
   Note : le blanc sur `#8B5CF6` a un contraste de 4,2:1 (recommandation
   d'accessibilité : 4,5:1). Choix assumé par le propriétaire.
 - Textes visibles du site : en anglais.
@@ -211,3 +214,7 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   nouvelle section `padlore-hero` (images desktop/mobile optionnelles, H1,
   sous-titre, 2 boutons, voile sombre réglable, animation d'entrée discrète).
   Cahier des charges enregistré dans `CAHIER_DES_CHARGES.md`.
+  Corrections après revue : logo texte centré sur mobile, hero en mise en
+  page « texte à gauche, image à droite » sur ordinateur (image en fond sur
+  mobile), slogan sur deux lignes, bouton principal violet. Visuels du hero
+  à fournir par le fondateur.

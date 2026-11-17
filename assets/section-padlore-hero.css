@@ -10,7 +10,7 @@
   min-height: 70svh;
 }
 
-/* Heights. svh = stable on mobile (no jump when the browser bar collapses). */
+/* Heights. svh = stable on phones (no jump when the browser bar collapses). */
 .padlore-hero--medium {
   min-height: 60svh;
 }
@@ -33,7 +33,7 @@
   }
 }
 
-/* ---------- Image ---------- */
+/* ---------- Image (phones and "image behind the text": full background) ---------- */
 
 .padlore-hero__media {
   position: absolute;
@@ -52,16 +52,16 @@
   object-fit: cover;
 }
 
-/* Darkening layer: stronger at the bottom and centre, where the text sits. */
+/* Darkening layer: stronger where the text sits. */
 .padlore-hero__media::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(18, 18, 26, calc(var(--padlore-hero-overlay) + 0.2)) 0%,
-    rgba(18, 18, 26, var(--padlore-hero-overlay)) 55%,
-    rgba(18, 18, 26, calc(var(--padlore-hero-overlay) * 0.6)) 100%
+    rgba(18, 18, 26, calc(var(--padlore-hero-overlay) + 0.35)) 0%,
+    rgba(18, 18, 26, var(--padlore-hero-overlay)) 50%,
+    rgba(18, 18, 26, calc(var(--padlore-hero-overlay) * 0.5)) 100%
   );
 }
 
@@ -80,6 +80,18 @@
   text-align: center;
   max-width: 96rem;
   margin: 0 auto;
+}
+
+/* Phones with an image: text sits in the lower part, over the darker gradient. */
+@media screen and (max-width: 749px) {
+  .padlore-hero--has-image {
+    align-items: flex-end;
+  }
+
+  .padlore-hero--has-image .padlore-hero__content {
+    padding-top: 24rem;
+    padding-bottom: 4.8rem;
+  }
 }
 
 @media screen and (min-width: 990px) {
@@ -104,6 +116,11 @@
   text-wrap: balance;
 }
 
+/* A sentence of the heading only wraps inside itself when it cannot fit at all. */
+.padlore-hero__heading-line {
+  display: inline-block;
+}
+
 .padlore-hero__subheading {
   margin: 2.4rem 0 0;
   max-width: 54ch;
@@ -119,6 +136,48 @@
   }
 }
 
+/* ---------- Desktop split: text left, product image right ---------- */
+
+@media screen and (min-width: 990px) {
+  .padlore-hero--layout-split.padlore-hero--has-image .padlore-hero__media {
+    left: auto;
+    width: 60%;
+  }
+
+  /* The photo fades into the dark background on its left edge. */
+  .padlore-hero--layout-split.padlore-hero--has-image .padlore-hero__media::after {
+    background:
+      linear-gradient(
+        to right,
+        rgb(var(--color-background)) 0%,
+        rgba(var(--color-background), 0.6) 18%,
+        rgba(var(--color-background), 0) 45%
+      ),
+      rgba(18, 18, 26, calc(var(--padlore-hero-overlay) * 0.5));
+  }
+
+  .padlore-hero--layout-split.padlore-hero--has-image .padlore-hero__inner {
+    align-items: flex-start;
+    text-align: left;
+    max-width: 62rem;
+    margin: 0;
+  }
+
+  .padlore-hero--layout-split.padlore-hero--has-image .padlore-hero__heading {
+    font-size: clamp(4.4rem, 4.6vw, 7.2rem);
+  }
+
+  .padlore-hero--layout-split.padlore-hero--has-image .padlore-hero__subheading {
+    max-width: 46ch;
+  }
+
+  .padlore-hero--layout-split.padlore-hero--has-image .padlore-hero__buttons {
+    justify-content: flex-start;
+  }
+}
+
+/* ---------- Buttons ---------- */
+
 .padlore-hero__buttons {
   display: flex;
   flex-wrap: wrap;
@@ -127,22 +186,49 @@
   margin-top: 3.6rem;
 }
 
-.padlore-hero--align-left .padlore-hero__buttons {
-  justify-content: inherit;
-}
-
 @media screen and (min-width: 990px) {
   .padlore-hero--align-left .padlore-hero__buttons {
     justify-content: flex-start;
   }
 }
 
-/* Secondary button: transparent with a light outline, so the image shows through. */
-.padlore-hero .button--secondary {
-  --alpha-button-background: 0;
+/* Main button: PADLORE violet with white text. */
+.padlore-hero .padlore-hero__button--primary {
+  --color-button: 139, 92, 246;
+  --color-button-text: 255, 255, 255;
+  transition: background-color var(--duration-short) ease,
+    box-shadow var(--duration-short) ease,
+    transform var(--padlore-duration-press, 160ms) var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
 }
 
-/* Mobile: full-width, stacked buttons (easy to tap). */
+/* Secondary button: transparent with a white outline, so the dark ground or image shows through. */
+.padlore-hero .padlore-hero__button--secondary {
+  --alpha-button-background: 0;
+  transition: background-color var(--duration-short) ease,
+    box-shadow var(--duration-short) ease,
+    transform var(--padlore-duration-press, 160ms) var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+
+/* Hover only on devices with a real pointer (no sticky hover on phones). */
+@media (hover: hover) and (pointer: fine) {
+  .padlore-hero .padlore-hero__button--primary:hover {
+    --color-button: 124, 58, 237;
+  }
+
+  .padlore-hero .padlore-hero__button--secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Keyboard focus: clear white ring, visible on the dark ground and on the violet. */
+.padlore-hero .padlore-hero__button--primary:focus-visible,
+.padlore-hero .padlore-hero__button--secondary:focus-visible {
+  outline: 0.2rem solid #ffffff;
+  outline-offset: 0.3rem;
+  box-shadow: none;
+}
+
+/* Phones: full-width, stacked buttons (easy to tap). */
 @media screen and (max-width: 749px) {
   .padlore-hero__buttons {
     flex-direction: column;
@@ -155,6 +241,29 @@
 
   .padlore-hero__buttons .button {
     width: 100%;
+  }
+}
+
+/* ---------- Theme editor only: where the image goes ---------- */
+
+.padlore-hero__placeholder {
+  position: absolute;
+  inset: 2.4rem;
+  z-index: -1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 2rem;
+  border: 0.1rem dashed rgba(255, 255, 255, 0.25);
+  border-radius: 1.6rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.3rem;
+}
+
+@media screen and (min-width: 990px) {
+  .padlore-hero--layout-split .padlore-hero__placeholder {
+    left: 52%;
+    align-items: center;
   }
 }
 
@@ -191,5 +300,12 @@
   .shopify-design-mode .padlore-hero__subheading,
   .shopify-design-mode .padlore-hero__buttons {
     animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .padlore-hero .padlore-hero__button--primary,
+  .padlore-hero .padlore-hero__button--secondary {
+    transition: none;
   }
 }
