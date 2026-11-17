@@ -100,18 +100,19 @@ Fichiers du style : `assets/padlore.css` (couche PADLORE au-dessus de
 
 ## Feuille de route
 
-| #  | Étape                                                         | État       |
-|----|---------------------------------------------------------------|------------|
-| 1  | Préparation technique (Dawn → PADLORE)                         | ✅ Terminé |
-| 2  | Boutique de développement + liaison GitHub                     | ✅ Terminé |
-| 3  | Style général (couleurs, polices Syne/Manrope, boutons)        | ⏳ À valider |
-| 4  | Logo et favicon (dès que le logo Canva est prêt)               | À faire    |
-| 5  | En-tête et pied de page                                        | À faire    |
-| 6  | Page d'accueil                                                 | À faire    |
-| 7  | Pages produit et collections (30 tailles)                      | À faire    |
-| 8  | Page « Customize Your Mat » (import, puis aperçu 2D)           | À faire    |
-| 9  | Panier, livraison, devises, langues                            | À faire    |
-| 10 | Pages légales, tests mobile/ordinateur, mise en ligne          | À faire    |
+Référence : `CAHIER_DES_CHARGES.md` (cahier des charges officiel V1).
+
+| Étape | Contenu                                                        | État        |
+|-------|----------------------------------------------------------------|-------------|
+| 1     | Préparation technique (Dawn → PADLORE)                          | ✅ Terminé  |
+| 2     | Boutique de développement + liaison GitHub                      | ✅ Terminé  |
+| 3     | Style général (polices, couleurs, boutons)                      | ✅ Validé   |
+| Accueil phase 1 | Bandeau d'annonce, header, hero                       | ⏳ À valider |
+| Accueil phase 2 | Réassurance, 4 collections                            | À faire     |
+| Accueil phase 3 | 4 produits, section personnalisation                  | À faire     |
+| Accueil phase 4 | Pourquoi PADLORE, guide des tailles, FAQ              | À faire     |
+| Accueil phase 5 | Footer et finalisation                                | À faire     |
+| Ensuite | Logo, pages produit/collections, configurateur, livraison/devises (passer en EUR), pages légales | À faire |
 
 ## Skills Claude (dossier `.claude/skills/`)
 
@@ -201,3 +202,8 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   thème, 5 schémas de couleurs PADLORE, boutons arrondis avec retour au clic,
   titres de section en majuscules, arrondis des cartes, champs et images.
   Pas de changement de mise en page (accueil, en-tête, pied de page).
+- **Accueil phase 1** — Bandeau d'annonce (noir, texte modifiable), header
+  (logo texte, icône compte désactivable et masquée, un seul H1 sur l'accueil),
+  nouvelle section `padlore-hero` (images desktop/mobile optionnelles, H1,
+  sous-titre, 2 boutons, voile sombre réglable, animation d'entrée discrète).
+  Cahier des charges enregistré dans `CAHIER_DES_CHARGES.md`.

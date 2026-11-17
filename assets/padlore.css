@@ -115,3 +115,29 @@ a:not(.button):not(.link--text):not(.full-unstyled-link) {
     transform: none;
   }
 }
+
+/* ---------- Announcement bar ---------- */
+
+.announcement-bar__message {
+  font-family: var(--font-body-family);
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  min-height: 3.6rem;
+  padding: 1.1rem 0;
+}
+
+/* ---------- Header ---------- */
+
+/* Text logo (until the PADLORE logo file is added in the theme editor). */
+.header__heading-link .h2 {
+  font-family: var(--font-heading-family);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.header__menu-item {
+  font-weight: 500;
+}

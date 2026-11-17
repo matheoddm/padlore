@@ -1,0 +1,195 @@
+/* PADLORE — Hero section */
+
+.padlore-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: rgb(var(--color-background));
+  min-height: 70svh;
+}
+
+/* Heights. svh = stable on mobile (no jump when the browser bar collapses). */
+.padlore-hero--medium {
+  min-height: 60svh;
+}
+
+.padlore-hero--large {
+  min-height: 80svh;
+}
+
+.padlore-hero--full {
+  min-height: calc(100svh - var(--header-height, 0px));
+}
+
+@media screen and (min-width: 750px) {
+  .padlore-hero--medium {
+    min-height: min(60svh, 64rem);
+  }
+
+  .padlore-hero--large {
+    min-height: min(82svh, 88rem);
+  }
+}
+
+/* ---------- Image ---------- */
+
+.padlore-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.padlore-hero__media picture,
+.padlore-hero__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.padlore-hero__image {
+  object-fit: cover;
+}
+
+/* Darkening layer: stronger at the bottom and centre, where the text sits. */
+.padlore-hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(18, 18, 26, calc(var(--padlore-hero-overlay) + 0.2)) 0%,
+    rgba(18, 18, 26, var(--padlore-hero-overlay)) 55%,
+    rgba(18, 18, 26, calc(var(--padlore-hero-overlay) * 0.6)) 100%
+  );
+}
+
+/* ---------- Content ---------- */
+
+.padlore-hero__content {
+  width: 100%;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.padlore-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 96rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 990px) {
+  .padlore-hero__content {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+
+  .padlore-hero--align-left .padlore-hero__inner {
+    align-items: flex-start;
+    text-align: left;
+    margin: 0;
+  }
+}
+
+.padlore-hero__heading {
+  margin: 0;
+  color: rgb(var(--color-foreground));
+  font-size: clamp(3.4rem, 6.4vw, 8.8rem);
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+
+.padlore-hero__subheading {
+  margin: 2.4rem 0 0;
+  max-width: 54ch;
+  color: rgba(var(--color-foreground), 0.82);
+  font-size: 1.6rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+@media screen and (min-width: 750px) {
+  .padlore-hero__subheading {
+    font-size: 1.8rem;
+  }
+}
+
+.padlore-hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 3.6rem;
+}
+
+.padlore-hero--align-left .padlore-hero__buttons {
+  justify-content: inherit;
+}
+
+@media screen and (min-width: 990px) {
+  .padlore-hero--align-left .padlore-hero__buttons {
+    justify-content: flex-start;
+  }
+}
+
+/* Secondary button: transparent with a light outline, so the image shows through. */
+.padlore-hero .button--secondary {
+  --alpha-button-background: 0;
+}
+
+/* Mobile: full-width, stacked buttons (easy to tap). */
+@media screen and (max-width: 749px) {
+  .padlore-hero__buttons {
+    flex-direction: column;
+    align-self: stretch;
+    width: 100%;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .padlore-hero__buttons .button {
+    width: 100%;
+  }
+}
+
+/* ---------- Entrance (once, on page load) ---------- */
+
+@keyframes padloreHeroIn {
+  from {
+    opacity: 0;
+    transform: translateY(1.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .padlore-hero__heading,
+  .padlore-hero__subheading,
+  .padlore-hero__buttons {
+    animation: padloreHeroIn 700ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) both;
+  }
+
+  .padlore-hero__subheading {
+    animation-delay: 80ms;
+  }
+
+  .padlore-hero__buttons {
+    animation-delay: 160ms;
+  }
+
+  /* No entrance replay while editing in the Shopify theme editor. */
+  .shopify-design-mode .padlore-hero__heading,
+  .shopify-design-mode .padlore-hero__subheading,
+  .shopify-design-mode .padlore-hero__buttons {
+    animation: none;
+  }
+}
