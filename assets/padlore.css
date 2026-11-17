@@ -1,0 +1,117 @@
+/*
+  PADLORE — global style layer on top of Dawn (base.css).
+  Colors come from the color schemes (config/settings_data.json).
+  Fonts come from snippets/padlore-fonts.liquid (Syne + Manrope).
+*/
+
+:root {
+  --padlore-black: #12121a;
+  --padlore-violet: #8b5cf6;
+  --padlore-lavender: #d8d4e5;
+  --padlore-white: #ffffff;
+  --padlore-off-white: #f7f7fa;
+
+  --padlore-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --padlore-duration-press: 160ms;
+}
+
+/* ---------- Body text (Manrope) ---------- */
+
+body {
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: rgba(139, 92, 246, 0.3);
+}
+
+/* ---------- Headings (Syne) ---------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h0,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.hxl,
+.hxxl {
+  letter-spacing: 0;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+/* Section titles in uppercase (decision 2C)... */
+h1,
+h2,
+.h0,
+.h1,
+.h2,
+.hxl,
+.hxxl {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* ...but product names stay in normal case. */
+.product__title h1,
+.product__title h2,
+.product__title .h1,
+.card__heading,
+.card__heading a,
+.card-information__text,
+.cart-item__name,
+.predictive-search__item-heading {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ---------- Buttons ---------- */
+
+.button,
+.shopify-challenge__button,
+.customer button,
+button.shopify-payment-button__button--unbranded {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: box-shadow var(--duration-short) ease, transform var(--padlore-duration-press) var(--padlore-ease-out);
+}
+
+/* Press feedback: the button gives slightly under the finger or cursor. */
+.button:not([disabled]):active,
+.shopify-challenge__button:active,
+.customer button:active,
+button.shopify-payment-button__button--unbranded:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Links ---------- */
+
+a:not(.button):not(.link--text):not(.full-unstyled-link) {
+  text-underline-offset: 0.25em;
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .shopify-challenge__button,
+  .customer button,
+  button.shopify-payment-button__button--unbranded {
+    transition: none;
+  }
+
+  .button:not([disabled]):active,
+  .shopify-challenge__button:active,
+  .customer button:active,
+  button.shopify-payment-button__button--unbranded:active {
+    transform: none;
+  }
+}

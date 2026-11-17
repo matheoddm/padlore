@@ -5,7 +5,7 @@
 Thème Shopify Online Store 2.0 de la marque PADLORE, basé sur le thème
 officiel **Dawn 16.1.1** de Shopify (licence MIT, voir `LICENSE.md`).
 
-## Identité visuelle (à appliquer à partir de l'étape design)
+## Identité visuelle
 
 | Rôle          | Couleur   |
 |---------------|-----------|
@@ -15,9 +15,32 @@ officiel **Dawn 16.1.1** de Shopify (licence MIT, voir `LICENSE.md`).
 | Blanc         | `#FFFFFF` |
 | Blanc cassé   | `#F7F7FA` |
 
-- Titres : **Sora**
-- Textes : **Inter**
+- Titres : **Syne** (graisse 700). Textes : **Manrope** (400 / 700).
+  Choisies à l'étape 3 (remplacent Sora + Inter). Licence SIL Open Font
+  License 1.1 (gratuite, usage commercial autorisé). Fichiers hébergés dans
+  le thème : `assets/padlore-syne-*.woff2`, `assets/padlore-manrope-*.woff2`,
+  chargés par `snippets/padlore-fonts.liquid`. Les sélecteurs de police de
+  l'éditeur Shopify n'ont donc plus d'effet.
+- Titres de section en MAJUSCULES, noms de produits en casse normale.
+- Boutons : violet `#8B5CF6` avec texte blanc sur les sections claires,
+  boutons blancs avec texte noir sur les sections sombres et violettes.
+  Forme arrondie (pilule), léger enfoncement au clic.
+  Note : le blanc sur `#8B5CF6` a un contraste de 4,2:1 (recommandation
+  d'accessibilité : 4,5:1). Choix assumé par le propriétaire.
 - Textes visibles du site : en anglais.
+
+**Schémas de couleurs (éditeur Shopify)**
+
+| Schéma   | Fond      | Texte     | Boutons                   | Usage                    |
+|----------|-----------|-----------|---------------------------|--------------------------|
+| scheme-1 | `#F7F7FA` | `#12121A` | violet, texte blanc       | sections claires (défaut)|
+| scheme-2 | `#FFFFFF` | `#12121A` | violet, texte blanc       | cartes produit, fiches   |
+| scheme-3 | `#12121A` | `#FFFFFF` | blanc, texte noir         | sections sombres         |
+| scheme-4 | `#D8D4E5` | `#12121A` | violet, texte blanc       | mises en avant           |
+| scheme-5 | `#8B5CF6` | `#FFFFFF` | blanc, texte noir         | bandeaux, appels à l'action |
+
+Fichiers du style : `assets/padlore.css` (couche PADLORE au-dessus de
+`base.css`) et `config/settings_data.json` (couleurs, arrondis).
 
 ## Boutique Shopify
 
@@ -81,8 +104,8 @@ officiel **Dawn 16.1.1** de Shopify (licence MIT, voir `LICENSE.md`).
 |----|---------------------------------------------------------------|------------|
 | 1  | Préparation technique (Dawn → PADLORE)                         | ✅ Terminé |
 | 2  | Boutique de développement + liaison GitHub                     | ✅ Terminé |
-| 3  | Logo et favicon                                                | À faire    |
-| 4  | Style général (couleurs, polices Sora/Inter, boutons)          | À faire    |
+| 3  | Style général (couleurs, polices Syne/Manrope, boutons)        | ⏳ À valider |
+| 4  | Logo et favicon (dès que le logo Canva est prêt)               | À faire    |
 | 5  | En-tête et pied de page                                        | À faire    |
 | 6  | Page d'accueil                                                 | À faire    |
 | 7  | Pages produit et collections (30 tailles)                      | À faire    |
@@ -174,3 +197,7 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   `padlore.myshopify.com`, liaison du thème avec GitHub (branche `main`) et
   publication du thème padlore/main. Décisions du projet notées ci-dessus.
   Aucun changement de design.
+- **Étape 3** — Style général : polices Syne + Manrope hébergées dans le
+  thème, 5 schémas de couleurs PADLORE, boutons arrondis avec retour au clic,
+  titres de section en majuscules, arrondis des cartes, champs et images.
+  Pas de changement de mise en page (accueil, en-tête, pied de page).
