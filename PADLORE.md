@@ -106,6 +106,7 @@ Instructions supplémentaires pour Claude Code. Shopify ignore ce dossier
 | `mobile-native` | Confort sur téléphone : zoom des champs, encoche, tap, carrousels    |
 | `animation-vocabulary` | Retrouver le nom exact d'un effet décrit avec des mots simples |
 | `learn-taste`   | Transformer tes corrections de design en règles écrites (`DESIGN.md`) |
+| `impeccable`    | Direction artistique : critique, audit (accessibilité, responsive), finitions, `PRODUCT.md` / `DESIGN.md` |
 
 Sources (licence MIT, fichiers texte uniquement) :
 
@@ -118,6 +119,11 @@ Sources (licence MIT, fichiers texte uniquement) :
   `apple-design`, `pick-ui-library`, `prototype`, `ask-emil`, `break-ui`,
   `choreograph`, `find-animation-opportunities`, `improve-animations`,
   `remove-animations` (applications mobiles, React, Swift, ou doublons).
+- « Impeccable » (Paul Bakaus, licence Apache 2.0) : `impeccable`.
+  Son moteur (programme téléchargé depuis GitHub au premier lancement) et
+  ses « hooks » automatiques ne sont **pas activés** : la skill est utilisée
+  en mode lecture (fichiers de référence + `PRODUCT.md` / `DESIGN.md`).
+  Ne pas les activer sans l'accord du propriétaire du projet.
 
 **Règles de priorité :**
 
@@ -125,6 +131,8 @@ Sources (licence MIT, fichiers texte uniquement) :
    toujours avant les recommandations des skills.
 2. Ne jamais laisser un script de skill écrire dans `assets/` : ce dossier
    est envoyé sur Shopify.
+3. Les règles de travail passent avant l'ambition des skills : une étape à
+   la fois, pas de design sans accord, rien de payant.
 
 ## Structure du thème
 

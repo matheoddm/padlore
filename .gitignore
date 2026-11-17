@@ -10,3 +10,7 @@ Thumbs.db
 .shopify
 node_modules
 *.zip
+# Claude skills: downloaded engine binaries and per-developer settings
+.claude/skills/impeccable/scripts/bin/
+.impeccable/config.local.json
+.claude/settings.local.json
