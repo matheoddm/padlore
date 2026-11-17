@@ -19,6 +19,77 @@ officiel **Dawn 16.1.1** de Shopify (licence MIT, voir `LICENSE.md`).
 - Textes : **Inter**
 - Textes visibles du site : en anglais.
 
+## Boutique Shopify
+
+- Boutique de **développement** (gratuite, programme Shopify Partners) :
+  `padlore.myshopify.com`. Elle ne peut pas vendre ; elle sert à construire
+  et tester le thème.
+- Le thème est relié à GitHub (dépôt `matheoddm/padlore`, branche `main`)
+  grâce à l'intégration GitHub de Shopify. Il apparaît sous le nom
+  **padlore/main** et il est publié sur la boutique.
+- La liaison fonctionne dans les deux sens :
+  - chaque push sur `main` met à jour le thème sur Shopify ;
+  - chaque modification faite dans l'éditeur de thème Shopify crée un
+    commit automatique sur `main` (toujours récupérer ces commits avant de
+    travailler).
+- Au lancement : création d'une vraie boutique (offre payante), reliée au
+  même dépôt GitHub. Les produits seront transférés par export/import CSV.
+
+## Décisions du projet
+
+**Collections**
+
+- Zen Japan
+- Monochrome Flow
+- Futuristic Gaming
+- Celestial Dream
+- Topographic Lines
+- Personalized Mats
+
+**Produits**
+
+- Un produit Shopify par design.
+- Une seule option : **Size** (30 tailles, prix différents par taille).
+- Épaisseur unique : 2 mm pour l'instant (d'autres épaisseurs possibles plus
+  tard, ajoutées comme seconde option).
+- Tailles (cm), valables pour tous les tapis :
+  25×20, 30×25, 35×25, 35×30, 45×30, 45×40, 45×45, 60×30, 60×35, 60×40,
+  65×35, 70×30, 70×35, 70×40, 70×50, 80×30, 80×35, 80×40, 80×50, 80×55,
+  90×30, 90×35, 90×40, 90×45, 90×50, 100×40, 100×50, 100×55, 120×50, 120×57.
+- Prix : à définir à la fin du projet.
+
+**Fabrication et personnalisation**
+
+- Fournisseur via AliExpress, qui expédie directement au client depuis la
+  Chine. Commandes passées manuellement par le propriétaire de la boutique.
+- Tapis personnalisés : le client importe un JPG/PNG, le fichier est joint à
+  la commande (propriété de ligne de commande, fonction native de Shopify).
+  Aperçu 2D prévu dans une étape dédiée. Prix à définir.
+- Les délais de livraison devront être clairement affichés.
+
+**International**
+
+- Entreprise basée en France.
+- Lancement : pays anglophones, puis Europe.
+- Site en anglais. Devises multiples via Shopify Markets. Langues
+  européennes ajoutées plus tard avec l'application gratuite
+  Translate & Adapt (Shopify).
+
+## Feuille de route
+
+| #  | Étape                                                         | État       |
+|----|---------------------------------------------------------------|------------|
+| 1  | Préparation technique (Dawn → PADLORE)                         | ✅ Terminé |
+| 2  | Boutique de développement + liaison GitHub                     | ✅ Terminé |
+| 3  | Logo et favicon                                                | À faire    |
+| 4  | Style général (couleurs, polices Sora/Inter, boutons)          | À faire    |
+| 5  | En-tête et pied de page                                        | À faire    |
+| 6  | Page d'accueil                                                 | À faire    |
+| 7  | Pages produit et collections (30 tailles)                      | À faire    |
+| 8  | Page « Customize Your Mat » (import, puis aperçu 2D)           | À faire    |
+| 9  | Panier, livraison, devises, langues                            | À faire    |
+| 10 | Pages légales, tests mobile/ordinateur, mise en ligne          | À faire    |
+
 ## Structure du thème
 
 | Dossier      | Rôle                                                              |
@@ -54,4 +125,8 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
 
 - **Étape 1** — Préparation technique : copie de Dawn 16.1.1, renommage du
   thème en PADLORE, retrait des fichiers internes GitHub de Shopify.
+  Aucun changement de design.
+- **Étape 2** — Création de la boutique de développement
+  `padlore.myshopify.com`, liaison du thème avec GitHub (branche `main`) et
+  publication du thème padlore/main. Décisions du projet notées ci-dessus.
   Aucun changement de design.
