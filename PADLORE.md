@@ -55,6 +55,10 @@ Fichiers du style : `assets/padlore.css` (couche PADLORE au-dessus de
   - chaque modification faite dans l'éditeur de thème Shopify crée un
     commit automatique sur `main` (toujours récupérer ces commits avant de
     travailler).
+  - Shopify ajoute un commentaire `/* ... */` en tête de
+    `config/settings_data.json` et des fichiers `templates/*.json` : ces
+    fichiers ne sont donc plus du JSON strict (retirer le commentaire avant
+    de les lire avec un outil JSON, et le conserver en les réécrivant).
 - Au lancement : création d'une vraie boutique (offre payante), reliée au
   même dépôt GitHub. Les produits seront transférés par export/import CSV.
 

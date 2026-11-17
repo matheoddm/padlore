@@ -138,6 +138,18 @@ a:not(.button):not(.link--text):not(.full-unstyled-link) {
   line-height: 1;
 }
 
+/* The text logo never breaks onto two lines; smaller on phones. */
+.header__heading-link .h2 {
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 749px) {
+  .header__heading-link .h2 {
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+  }
+}
+
 .header__menu-item {
   font-weight: 500;
 }
