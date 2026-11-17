@@ -90,6 +90,29 @@ officiel **Dawn 16.1.1** de Shopify (licence MIT, voir `LICENSE.md`).
 | 9  | Panier, livraison, devises, langues                            | À faire    |
 | 10 | Pages légales, tests mobile/ordinateur, mise en ligne          | À faire    |
 
+## Skills Claude (dossier `.claude/skills/`)
+
+Instructions supplémentaires pour Claude Code. Shopify ignore ce dossier
+(il ne fait pas partie du thème).
+
+| Skill           | Utilité pour PADLORE                                              |
+|-----------------|-------------------------------------------------------------------|
+| `ui-ux-pro-max` | Bonnes pratiques UI/UX : accessibilité, responsive, typographie, animations, structure des pages |
+| `brand`         | Identité de marque : ton des textes, règles d'utilisation du logo, cohérence |
+
+Source : pack open source « UI UX Pro Max » (licence MIT, Next Level
+Builder). Les tests internes du pack ont été retirés. Autres skills du pack
+non installées pour l'instant (`design`, `design-system`, `ui-styling`,
+`banner-design`, `slides`) : elles visent d'autres outils (Tailwind, React,
+présentations) ou des services d'IA payants avec clé API.
+
+**Règles de priorité :**
+
+1. Les décisions de ce guide (couleurs, polices, règles du projet) passent
+   toujours avant les recommandations des skills.
+2. Ne jamais laisser un script de skill écrire dans `assets/` : ce dossier
+   est envoyé sur Shopify.
+
 ## Structure du thème
 
 | Dossier      | Rôle                                                              |
