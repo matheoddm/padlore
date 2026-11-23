@@ -226,8 +226,7 @@
   /* The photo fades into the dark background on its left edge. */
   .padlore-hero--layout-split.padlore-hero--has-image .padlore-hero__media::after {
     background:
-      /* top and bottom edges melt into the dark surface (no hard line under the header) */
-      linear-gradient(to bottom, rgb(var(--color-background)) 0%, rgba(var(--color-background), 0) 14%),
+      /* bottom edge melts into the dark surface below (no hard line) */
       linear-gradient(to top, rgb(var(--color-background)) 0%, rgba(var(--color-background), 0) 16%),
       linear-gradient(
         to right,
