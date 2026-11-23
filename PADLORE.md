@@ -120,7 +120,7 @@ Référence : `CAHIER_DES_CHARGES.md` (cahier des charges officiel V1).
 | 2     | Boutique de développement + liaison GitHub                      | ✅ Terminé  |
 | 3     | Style général (polices, couleurs, boutons)                      | ✅ Validé   |
 | Accueil phase 1 | Bandeau d'annonce, header, hero                       | ✅ Validé (23/11/2026) |
-| Accueil phase 2 | Réassurance, 4 collections                            | ⏳ Index validé, collections à valider |
+| Accueil phase 2 | Réassurance, 4 collections                            | ✅ Validé (23/11/2026) |
 | Accueil phase 3 | 4 produits, section personnalisation                  | À faire     |
 | Accueil phase 4 | Pourquoi PADLORE, guide des tailles, FAQ              | À faire     |
 | Accueil phase 5 | Footer et finalisation                                | À faire     |
@@ -268,3 +268,8 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   légère, survol sans liseré (flèche qui devient blanche), carte sans image en
   lavande. Règle pour la suite : une seule section « forte » par écran, le
   violet reste un accent.
+- **Accueil phase 2 validée** le 23/11/2026, avec une seule demande : garder
+  l'alternance sombre/clair. Collections remises sur fond noir (scheme-3),
+  tout le reste inchangé. Ordre actuel : hero (noir) → index (blanc cassé) →
+  collections (noir). Reste à faire par le fondateur : créer les collections
+  et la page « Size Guide », relier les cartes et la ligne « 30 Sizes ».

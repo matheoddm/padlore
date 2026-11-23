@@ -143,8 +143,8 @@
         "link": "/collections",
         "explore_label": "Explore",
         "card_ratio": "portrait",
-        "color_scheme": "scheme-1",
-        "padding_top": 24,
+        "color_scheme": "scheme-3",
+        "padding_top": 96,
         "padding_bottom": 96
       }
     }
