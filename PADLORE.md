@@ -223,3 +223,9 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   page « texte à gauche, image à droite » sur ordinateur (image en fond sur
   mobile), slogan sur deux lignes, bouton principal violet. Visuels du hero
   à fournir par le fondateur.
+  Visuels ajoutés (provisoires : design Zen Japan généré, à remplacer par un
+  vrai design PADLORE) : `padlore-hero-desktop-zen-japan.png` (1672 × 941,
+  point focal sur le tapis) et `padlore-hero-mobile-zen-japan.png`.
+  Disposition responsive du hero : téléphone et tablette = image entière en
+  haut puis texte dessous ; ordinateur = texte à gauche, image à droite.
+  Réglage « Mobile: move text up over the image » (48 % par défaut).

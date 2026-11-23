@@ -122,6 +122,40 @@
   }
 }
 
+/*
+  Tablets (750–989 px) with an image: the desktop photo is shown whole at the
+  top and the text sits below it, so the product never sits behind the text.
+*/
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .padlore-hero--has-image {
+    display: block;
+    min-height: 0;
+  }
+
+  .padlore-hero--has-image .padlore-hero__media {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+  }
+
+  .padlore-hero--has-image .padlore-hero__image {
+    height: auto;
+  }
+
+  .padlore-hero--has-image .padlore-hero__media::after {
+    background: linear-gradient(
+      to top,
+      rgb(var(--color-background)) 0%,
+      rgba(var(--color-background), 0) 22%
+    );
+  }
+
+  .padlore-hero--has-image .padlore-hero__content {
+    padding-top: 4rem;
+    padding-bottom: 6.4rem;
+  }
+}
+
 /* Phones with an image: text sits in the lower part, over the darker gradient. */
 @media screen and (max-width: 749px) {
   .padlore-hero--has-image:not(.padlore-hero--has-mobile-image) {
@@ -195,8 +229,9 @@
       linear-gradient(
         to right,
         rgb(var(--color-background)) 0%,
-        rgba(var(--color-background), 0.6) 18%,
-        rgba(var(--color-background), 0) 45%
+        rgba(var(--color-background), 0.75) 15%,
+        rgba(var(--color-background), 0.3) 35%,
+        rgba(var(--color-background), 0) 55%
       ),
       rgba(18, 18, 26, calc(var(--padlore-hero-overlay) * 0.5));
   }
@@ -218,6 +253,21 @@
 
   .padlore-hero--layout-split.padlore-hero--has-image .padlore-hero__buttons {
     justify-content: flex-start;
+  }
+}
+
+/* Small laptops (990–1199 px): slightly narrower text column and image. */
+@media screen and (min-width: 990px) and (max-width: 1199px) {
+  .padlore-hero--layout-split.padlore-hero--has-image .padlore-hero__media {
+    width: 56%;
+  }
+
+  .padlore-hero--layout-split.padlore-hero--has-image .padlore-hero__inner {
+    max-width: 46rem;
+  }
+
+  .padlore-hero--layout-split.padlore-hero--has-image .padlore-hero__subheading {
+    max-width: 38ch;
   }
 }
 
