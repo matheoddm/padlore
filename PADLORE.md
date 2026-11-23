@@ -281,3 +281,6 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   -5,6 rem ordinateur) et se pose en glissant à l'apparition. Bas de la photo du
   hero en fondu sur ordinateur. Réglages dans l'éditeur : « Layout » (feuille ou
   bande pleine largeur) et « Background around the sheet ».
+- Ajustement : sur ordinateur, la feuille ne chevauche plus la photo du hero
+  (espace noir de 4 rem au-dessus) ; le chevauchement léger est conservé sur
+  téléphone et tablette, où il ne touche que la zone de texte.

@@ -37,9 +37,14 @@
   }
 }
 
+/* Computers: no overlap with the hero photo — a little dark space above the sheet. */
 @media screen and (min-width: 990px) {
+  .padlore-index-frame--sheet {
+    padding-top: 4rem;
+  }
+
   .padlore-index-frame--sheet .padlore-index {
-    margin-top: -5.6rem;
+    margin-top: 0;
   }
 }
 
