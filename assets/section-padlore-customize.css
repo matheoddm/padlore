@@ -183,3 +183,11 @@
     transition: none;
   }
 }
+
+/* Phones: same side margin as the content of the off-white sheets (2.4rem). */
+@media screen and (max-width: 749px) {
+  .padlore-customize__inner.page-width {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+}

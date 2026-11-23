@@ -305,3 +305,5 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   pour chaque design (bouton « Dupliquer » de Shopify, sans copier les images).
   Questions à trancher : grille de prix (ou prix provisoire unique) et nom du
   produit modèle.
+- Téléphone : marge latérale unifiée à 2,4 rem (24 px) pour l'index, les
+  collections, les produits et la personnalisation (tout le texte aligné).

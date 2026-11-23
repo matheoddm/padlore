@@ -221,3 +221,11 @@
     transition: none;
   }
 }
+
+/* Phones: content 2.4rem from the screen edge (1.2rem frame + 1.2rem), like the other sections. */
+@media screen and (max-width: 749px) {
+  .padlore-products-frame--sheet .padlore-products .page-width {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+}
