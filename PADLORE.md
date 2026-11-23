@@ -116,6 +116,41 @@ Fichiers du style : `assets/padlore.css` (couche PADLORE au-dessus de
   européennes ajoutées plus tard avec l'application gratuite
   Translate & Adapt (Shopify).
 
+## 📍 Point de reprise (mis à jour le 23/11/2026, fin de session)
+
+**Ordre actuel de la page d'accueil** (`templates/index.json`) :
+hero (noir) → index éditorial en feuille blanc cassé → collections (noir) →
+« The edit. » en feuille blanc cassé → « Make it yours. » (noir) → pied de page Dawn.
+
+**Vérifications de fin de session** : `shopify theme check` 0 erreur (9
+avertissements d'origine Dawn) ; JSON, JavaScript et CSS valides ; tous les
+fichiers référencés présents ; simulation pleine page à 360, 390, 820, 1280 et
+1920 px, avec et sans animations : pas de débordement horizontal, un seul H1,
+aucun élément resté invisible, aucune erreur JavaScript. Les deux
+enregistrements automatiques de Shopify de la journée ont été contrôlés (le
+seul fichier écrasé a été restauré).
+
+**En attente de réponse du fondateur**
+1. Validation de la phase 3 (« The edit. » + « Make it yours. »).
+2. Marge de 24 px aussi sur les boutons du hero sur téléphone ? (oui / non)
+
+**À faire par le fondateur dans Shopify**
+- Créer la page « Size Guide » et la relier à la ligne « 30 Sizes » de l'index.
+- Créer les 6 collections (images verticales ≥ 1200 px, point focal sur le
+  tapis) et relier les 4 cartes de l'accueil.
+- Ajouter une image à « Make it yours. » (tapis personnalisé sur un bureau, 4:3).
+- Ajouter d'autres produits (3 de plus pour remplir « The edit. »).
+- Toujours attendre 2 minutes après un push de Claude avant d'enregistrer dans
+  l'éditeur.
+
+**Prochaines étapes de Claude**
+1. Phase 4 : proposer deux directions pour « Pourquoi PADLORE », l'aperçu du
+   guide des tailles et la FAQ (3 questions, sans délais inventés).
+2. Phase 5 : pied de page (retirer la newsletter Dawn, liens, réseaux et
+   paiements réels), accessibilité, performance, SEO.
+3. Plus tard : produit modèle avec les 30 tailles (CSV), devise principale en
+   EUR, logo et favicon, pages produit et collection, configurateur.
+
 ## Feuille de route
 
 Référence : `CAHIER_DES_CHARGES.md` (cahier des charges officiel V1).
@@ -126,7 +161,7 @@ Référence : `CAHIER_DES_CHARGES.md` (cahier des charges officiel V1).
 | 2     | Boutique de développement + liaison GitHub                      | ✅ Terminé  |
 | 3     | Style général (polices, couleurs, boutons)                      | ✅ Validé   |
 | Accueil phase 1 | Bandeau d'annonce, header, hero                       | ✅ Validé (23/11/2026) |
-| Accueil phase 2 | Réassurance, 4 collections                            | ✅ Validé (23/11/2026) |
+| Accueil phase 2 | Réassurance (index éditorial), 4 collections, raccords | ✅ Validé (23/11/2026) |
 | Accueil phase 3 | 4 produits, section personnalisation                  | ⏳ À valider |
 | Accueil phase 4 | Pourquoi PADLORE, guide des tailles, FAQ              | À faire     |
 | Accueil phase 5 | Footer et finalisation                                | À faire     |
