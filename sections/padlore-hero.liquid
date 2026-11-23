@@ -88,7 +88,9 @@
         {%- assign heading_parts = section.settings.heading | split: '. ' -%}
         <h1 class="padlore-hero__heading hxl">
           {%- for part in heading_parts -%}
-            <span class="padlore-hero__heading-line">{{ part | escape }}{% unless forloop.last %}.{% endunless %}</span>
+            <span class="padlore-hero__heading-line{% if forloop.last and forloop.length > 1 and section.settings.heading_accent %} padlore-hero__heading-line--accent{% endif %}">
+              {{- part | escape }}{% unless forloop.last %}.{% endunless -%}
+            </span>
             {%- unless forloop.last %} {% endunless -%}
           {%- endfor -%}
         </h1>
@@ -103,6 +105,19 @@
           {%- if show_button_1 -%}
             <a href="{{ section.settings.button_link_1 }}" class="button button--primary padlore-hero__button--primary">
               {{- section.settings.button_label_1 | escape -}}
+              {%- if section.settings.button_1_arrow -%}
+                <svg
+                  class="padlore-hero__arrow"
+                  aria-hidden="true"
+                  focusable="false"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                >
+                  <path d="M4 10h11.5M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              {%- endif -%}
             </a>
           {%- endif -%}
           {%- if show_button_2 -%}
@@ -161,6 +176,13 @@
       "default": "Your Pad. Your Story."
     },
     {
+      "type": "checkbox",
+      "id": "heading_accent",
+      "label": "Last sentence of the heading in violet",
+      "info": "Example: \"Your Story.\" in violet. The heading must contain at least two sentences.",
+      "default": true
+    },
+    {
       "type": "textarea",
       "id": "subheading",
       "label": "Subheading",
@@ -182,6 +204,12 @@
       "id": "button_link_1",
       "label": "Main button link",
       "default": "/collections"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_1_arrow",
+      "label": "Show an arrow in the main button",
+      "default": true
     },
     {
       "type": "text",

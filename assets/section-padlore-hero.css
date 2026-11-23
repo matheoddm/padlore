@@ -121,6 +121,11 @@
   display: inline-block;
 }
 
+/* Optional accent: the last sentence ("Your Story.") in PADLORE violet. */
+.padlore-hero__heading-line--accent {
+  color: var(--padlore-violet, #8b5cf6);
+}
+
 .padlore-hero__subheading {
   margin: 2.4rem 0 0;
   max-width: 54ch;
@@ -201,6 +206,13 @@
     transform var(--padlore-duration-press, 160ms) var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
 }
 
+/* Arrow inside the main button. */
+.padlore-hero__arrow {
+  flex-shrink: 0;
+  margin-left: 0.8rem;
+  transition: transform 200ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+
 /* Secondary button: transparent with a white outline, so the dark ground or image shows through. */
 .padlore-hero .padlore-hero__button--secondary {
   --alpha-button-background: 0;
@@ -213,6 +225,10 @@
 @media (hover: hover) and (pointer: fine) {
   .padlore-hero .padlore-hero__button--primary:hover {
     --color-button: 124, 58, 237;
+  }
+
+  .padlore-hero .padlore-hero__button--primary:hover .padlore-hero__arrow {
+    transform: translateX(0.3rem);
   }
 
   .padlore-hero .padlore-hero__button--secondary:hover {
@@ -306,6 +322,10 @@
 @media (prefers-reduced-motion: reduce) {
   .padlore-hero .padlore-hero__button--primary,
   .padlore-hero .padlore-hero__button--secondary {
+    transition: none;
+  }
+
+  .padlore-hero__arrow {
     transition: none;
   }
 }

@@ -28,6 +28,11 @@ officiel **Dawn 16.1.1** de Shopify (licence MIT, voir `LICENSE.md`).
   Exception validée : dans le hero (fond noir), le bouton principal est violet
   `#8B5CF6` avec texte blanc (survol `#7C3AED`), le secondaire transparent à
   contour blanc.
+- Hero : titre en majuscules Syne, « YOUR PAD. » en blanc et « YOUR STORY. »
+  en violet (option « Last sentence of the heading in violet »), flèche → dans
+  le bouton principal. Pas de surtitre.
+- Menu ordinateur : trait violet sous le lien de la page active, qui
+  apparaît aussi au survol.
   Note : le blanc sur `#8B5CF6` a un contraste de 4,2:1 (recommandation
   d'accessibilité : 4,5:1). Choix assumé par le propriétaire.
 - Textes visibles du site : en anglais.

@@ -14,6 +14,8 @@
       "settings": {
         "overlay_opacity": 35,
         "layout_desktop": "split",
+        "heading_accent": true,
+        "button_1_arrow": true,
         "heading": "Your Pad. Your Story.",
         "subheading": "Turn your workspace into something personal. Explore artistic desk mats designed to complement your setup.",
         "button_label_1": "Shop Collections",
