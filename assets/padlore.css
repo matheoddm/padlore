@@ -46,6 +46,8 @@ h5,
   letter-spacing: 0;
   line-height: 1.12;
   text-wrap: balance;
+  /* Syne draws old-style digits by default ("3o"); use classic lining digits. */
+  font-variant-numeric: lining-nums;
 }
 
 /* Section titles in uppercase (decision 2C)... */

@@ -57,10 +57,50 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "padlore_reassurance": {
+      "type": "padlore-reassurance",
+      "blocks": {
+        "item_sizes": {
+          "type": "item",
+          "settings": {
+            "icon": "ruler",
+            "title": "30 Sizes",
+            "text": "From 25×20 to 120×57 cm"
+          }
+        },
+        "item_designs": {
+          "type": "item",
+          "settings": {
+            "icon": "palette",
+            "title": "Artistic Designs",
+            "text": "Explore six distinctive collections for your desk."
+          }
+        },
+        "item_fit": {
+          "type": "item",
+          "settings": {
+            "icon": "desk",
+            "title": "Find Your Fit",
+            "text": "Choose dimensions that suit your workspace."
+          }
+        }
+      },
+      "block_order": [
+        "item_sizes",
+        "item_designs",
+        "item_fit"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
     "padlore_hero",
+    "padlore_reassurance",
     "featured_collection"
   ]
 }

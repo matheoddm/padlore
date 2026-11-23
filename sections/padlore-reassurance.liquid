@@ -1,0 +1,154 @@
+{% comment %}
+  PADLORE — Reassurance strip (right under the hero)
+  - Short, verified facts only (no unconfirmed shipping or other promises).
+  - One block per item: icon, title, one-line description. Order = block order.
+  - Semantic list; titles are not headings (the strip has no section heading).
+{% endcomment %}
+
+{{ 'section-padlore-reassurance.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #PadloreReassurance-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #PadloreReassurance-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div
+  id="PadloreReassurance-{{ section.id }}"
+  class="padlore-reassurance color-{{ section.settings.color_scheme }} gradient"
+>
+  {%- if section.blocks.size > 0 -%}
+    <ul class="padlore-reassurance__list page-width list-unstyled" role="list">
+      {%- for block in section.blocks -%}
+        <li class="padlore-reassurance__item" {{ block.shopify_attributes }}>
+          <span class="padlore-reassurance__icon">
+            {%- render 'padlore-icon', icon: block.settings.icon, size: 28 -%}
+          </span>
+          <div class="padlore-reassurance__text">
+            {%- if block.settings.title != blank -%}
+              <p class="padlore-reassurance__title">{{ block.settings.title | escape }}</p>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <p class="padlore-reassurance__description">{{ block.settings.text | escape }}</p>
+            {%- endif -%}
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "PADLORE Reassurance",
+  "tag": "section",
+  "class": "section section-padlore-reassurance",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "ruler", "label": "Ruler (sizes)" },
+            { "value": "palette", "label": "Palette (designs)" },
+            { "value": "desk", "label": "Desk setup" },
+            { "value": "resize", "label": "Dimensions" },
+            { "value": "layers", "label": "Layers (collections)" },
+            { "value": "brush", "label": "Brush (custom)" },
+            { "value": "sparkle", "label": "Sparkle" },
+            { "value": "lock", "label": "Lock (secure checkout)" },
+            { "value": "truck", "label": "Truck (shipping)" },
+            { "value": "globe", "label": "Globe (international)" }
+          ],
+          "default": "ruler"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "30 Sizes"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Description",
+          "info": "One short line. Only state facts that are confirmed.",
+          "default": "From 25×20 to 120×57 cm"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "PADLORE Reassurance",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon": "ruler",
+            "title": "30 Sizes",
+            "text": "From 25×20 to 120×57 cm"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "palette",
+            "title": "Artistic Designs",
+            "text": "Explore six distinctive collections for your desk."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "desk",
+            "title": "Find Your Fit",
+            "text": "Choose dimensions that suit your workspace."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -120,7 +120,7 @@ Référence : `CAHIER_DES_CHARGES.md` (cahier des charges officiel V1).
 | 2     | Boutique de développement + liaison GitHub                      | ✅ Terminé  |
 | 3     | Style général (polices, couleurs, boutons)                      | ✅ Validé   |
 | Accueil phase 1 | Bandeau d'annonce, header, hero                       | ✅ Validé (23/11/2026) |
-| Accueil phase 2 | Réassurance, 4 collections                            | ⏳ Plan à valider |
+| Accueil phase 2 | Réassurance, 4 collections                            | ⏳ Réassurance à valider, collections ensuite |
 | Accueil phase 3 | 4 produits, section personnalisation                  | À faire     |
 | Accueil phase 4 | Pourquoi PADLORE, guide des tailles, FAQ              | À faire     |
 | Accueil phase 5 | Footer et finalisation                                | À faire     |
@@ -234,3 +234,8 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   ≥ 2400 px), logo et favicon, section « Featured products » de Dawn
   (remplacée en phase 3), devise principale en EUR, titre et description SEO
   de la boutique (phase 5).
+- **Accueil phase 2 — réassurance** : section `padlore-reassurance` sous le hero
+  (3 blocs éditables : icône, titre, description ; textes validés par le
+  fondateur et le chef de projet : « 30 Sizes », « Artistic Designs »,
+  « Find Your Fit »). Icônes dans `snippets/padlore-icon.liquid`.
+  Chiffres des titres Syne en style classique (`lining-nums`).
