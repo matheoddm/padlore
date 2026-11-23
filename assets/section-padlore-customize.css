@@ -1,0 +1,185 @@
+/* PADLORE — Customization teaser ("Make it yours.") */
+
+.padlore-customize__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.2rem;
+  align-items: center;
+}
+
+@media screen and (min-width: 990px) {
+  .padlore-customize__inner {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: clamp(4rem, 6vw, 9.6rem);
+  }
+
+  .padlore-customize--text-only .padlore-customize__inner {
+    grid-template-columns: minmax(0, 64rem);
+    justify-content: center;
+  }
+}
+
+/* ---------- Image ---------- */
+
+.padlore-customize__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: 2rem;
+  background-color: #1b1a26;
+}
+
+.padlore-customize__media--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1rem dashed rgba(255, 255, 255, 0.25);
+  background-color: transparent;
+}
+
+.padlore-customize__placeholder {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.padlore-customize__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Text ---------- */
+
+.padlore-customize__heading {
+  margin: 0;
+  font-size: clamp(2.8rem, 3.6vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1;
+  color: rgb(var(--color-foreground));
+}
+
+.padlore-customize__accent {
+  color: var(--padlore-violet, #8b5cf6);
+}
+
+.padlore-customize__subheading {
+  margin: 1.6rem 0 0;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: rgba(var(--color-foreground), 0.72);
+}
+
+@media screen and (min-width: 750px) {
+  .padlore-customize__subheading {
+    font-size: 1.8rem;
+  }
+}
+
+.padlore-customize__steps {
+  margin: 3.2rem 0 3.6rem;
+  padding: 0;
+}
+
+.padlore-customize__step {
+  display: grid;
+  grid-template-columns: 4.4rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1.6rem;
+  padding: 1.6rem 0;
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
+}
+
+.padlore-customize__step:last-child {
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.12);
+}
+
+.padlore-customize__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  border: 0.15rem solid rgba(139, 92, 246, 0.7);
+  color: var(--padlore-violet, #8b5cf6);
+}
+
+.padlore-customize__step-title {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: rgb(var(--color-foreground));
+}
+
+.padlore-customize__step-text {
+  margin: 0.3rem 0 0;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: rgba(var(--color-foreground), 0.68);
+}
+
+/* Button: PADLORE violet with white text (like the hero's main button). */
+.padlore-customize .padlore-customize__button {
+  --color-button: 139, 92, 246;
+  --color-button-text: 255, 255, 255;
+}
+
+.padlore-customize__arrow {
+  flex-shrink: 0;
+  margin-left: 0.8rem;
+  transition: transform 200ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+
+.padlore-customize .padlore-customize__button:focus-visible {
+  outline: 0.2rem solid #ffffff;
+  outline-offset: 0.3rem;
+  box-shadow: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .padlore-customize .padlore-customize__button:hover {
+    --color-button: 124, 58, 237;
+  }
+
+  .padlore-customize .padlore-customize__button:hover .padlore-customize__arrow {
+    transform: translateX(0.3rem);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .padlore-customize .padlore-customize__button {
+    width: 100%;
+  }
+}
+
+/* ---------- Entrance (once, only when the script switched motion on) ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-motion='on'] .padlore-customize__media {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 700ms ease, transform 900ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+  }
+
+  [data-motion='on'] .padlore-customize__step {
+    opacity: 0;
+    transform: translateY(1.2rem);
+    transition: opacity 600ms ease, transform 700ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+    transition-delay: calc(150ms + var(--i, 0) * 90ms);
+  }
+
+  [data-motion='on'].is-revealed .padlore-customize__media,
+  [data-motion='on'].is-revealed .padlore-customize__step {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .padlore-customize__arrow {
+    transition: none;
+  }
+}

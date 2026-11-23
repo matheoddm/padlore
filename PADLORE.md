@@ -121,7 +121,7 @@ Référence : `CAHIER_DES_CHARGES.md` (cahier des charges officiel V1).
 | 3     | Style général (polices, couleurs, boutons)                      | ✅ Validé   |
 | Accueil phase 1 | Bandeau d'annonce, header, hero                       | ✅ Validé (23/11/2026) |
 | Accueil phase 2 | Réassurance, 4 collections                            | ✅ Validé (23/11/2026) |
-| Accueil phase 3 | 4 produits, section personnalisation                  | À faire     |
+| Accueil phase 3 | 4 produits, section personnalisation                  | ⏳ À valider |
 | Accueil phase 4 | Pourquoi PADLORE, guide des tailles, FAQ              | À faire     |
 | Accueil phase 5 | Footer et finalisation                                | À faire     |
 | Ensuite | Logo, pages produit/collections, configurateur, livraison/devises (passer en EUR), pages légales | À faire |
@@ -284,3 +284,13 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
 - Ajustement : sur ordinateur, la feuille ne chevauche plus la photo du hero
   (espace noir de 4 rem au-dessus) ; le chevauchement léger est conservé sur
   téléphone et tablette, où il ne touche que la zone de texte.
+- **Accueil phase 3 (direction A)** : section `padlore-products` (« The edit. »,
+  feuille blanc cassé posée sur le noir, 4 cartes carrées égales, nom + vrai
+  prix Shopify avec « From » si les tailles ont des prix différents, 2e image au
+  survol, emplacements vides visibles seulement dans l'éditeur, section masquée
+  sur la boutique tant qu'aucun produit n'est choisi) et section
+  `padlore-customize` (« Make it yours. », fond noir, image à gauche, 3 étapes
+  Upload / Preview / Create en blocs, bouton violet vers la page Customize ;
+  sans image : texte seul centré). Présentation seulement : le configurateur
+  reste un chantier distinct. Script commun d'apparition : `assets/padlore-reveal.js`.
+  La section « Featured products » de Dawn a été retirée de l'accueil.

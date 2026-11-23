@@ -1,0 +1,223 @@
+/* PADLORE — Featured products ("The edit.") */
+
+/* Sheet resting on the dark background (same principle as the editorial index). */
+.padlore-products-frame--full {
+  background: none;
+}
+
+.padlore-products-frame--sheet {
+  padding: 0 1.2rem;
+}
+
+.padlore-products-frame--sheet .padlore-products {
+  max-width: 152rem;
+  margin: 0 auto;
+  border-radius: 2rem;
+  box-shadow: 0 0 0 0.1rem rgba(255, 255, 255, 0.04), 0 3.2rem 8rem -3.2rem rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (min-width: 750px) {
+  .padlore-products-frame--sheet {
+    padding: 0 clamp(1.6rem, 2.2vw, 3.2rem);
+  }
+
+  .padlore-products-frame--sheet .padlore-products {
+    border-radius: 2.4rem;
+  }
+}
+
+/* ---------- Header ---------- */
+
+.padlore-products__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3.2rem;
+}
+
+@media screen and (min-width: 750px) {
+  .padlore-products__header {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 4.4rem;
+  }
+}
+
+.padlore-products__heading {
+  margin: 0;
+  font-size: clamp(2.6rem, 3.4vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1;
+  color: rgb(var(--color-foreground));
+}
+
+.padlore-products__subheading {
+  margin: 1.4rem 0 0;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+@media screen and (min-width: 750px) {
+  .padlore-products__subheading {
+    font-size: 1.8rem;
+  }
+}
+
+.padlore-products__all {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  padding-bottom: 0.8rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(var(--color-foreground));
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.padlore-products__all::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.15rem;
+  background-color: var(--padlore-violet, #8b5cf6);
+}
+
+.padlore-products__all svg {
+  color: var(--padlore-violet, #8b5cf6);
+  transition: transform 300ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+
+/* ---------- Grid ---------- */
+
+.padlore-products__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3.2rem 1.4rem;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .padlore-products__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+
+/* ---------- Card ---------- */
+
+.padlore-products__card {
+  display: block;
+  color: rgb(var(--color-foreground));
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.padlore-products__media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  border-radius: 1.4rem;
+  background: linear-gradient(160deg, #e4e0ee 0%, #d8d4e5 100%);
+}
+
+/* Dawn hides empty divs (div:empty): keep the empty slot visible in the editor. */
+.padlore-products__card--empty .padlore-products__media {
+  display: block;
+}
+
+.padlore-products__card--empty {
+  opacity: 0.6;
+}
+
+.padlore-products__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+    opacity 500ms ease;
+}
+
+.padlore-products__image--second {
+  opacity: 0;
+}
+
+.padlore-products__name {
+  margin: 1.4rem 0 0;
+  font-family: var(--font-heading-family);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@media screen and (min-width: 750px) {
+  .padlore-products__name {
+    font-size: 1.7rem;
+  }
+}
+
+.padlore-products__price {
+  margin: 0.6rem 0 0;
+  font-size: 1.5rem;
+  color: rgba(var(--color-foreground), 0.68);
+  font-variant-numeric: tabular-nums;
+}
+
+.padlore-products__card:focus-visible,
+.padlore-products__all:focus-visible {
+  outline: 0.2rem solid var(--padlore-violet, #8b5cf6);
+  outline-offset: 0.4rem;
+  border-radius: 0.6rem;
+}
+
+/* ---------- Hover (computers only) ---------- */
+
+@media (hover: hover) and (pointer: fine) {
+  .padlore-products__card:hover .padlore-products__image {
+    transform: scale(1.04);
+  }
+
+  .padlore-products__card--swap:hover .padlore-products__image--second {
+    opacity: 1;
+  }
+
+  .padlore-products__all:hover svg {
+    transform: translateX(0.4rem);
+  }
+}
+
+/* ---------- Entrance (once, only when the script switched motion on) ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-motion='on'] .padlore-products__item {
+    opacity: 0;
+    transform: translateY(1.6rem);
+    transition: opacity 600ms ease, transform 800ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+    transition-delay: calc(var(--i, 0) * 80ms);
+  }
+
+  [data-motion='on'].is-revealed .padlore-products__item {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .padlore-products__image,
+  .padlore-products__all svg {
+    transition: none;
+  }
+}
