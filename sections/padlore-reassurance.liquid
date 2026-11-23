@@ -1,20 +1,26 @@
 {% comment %}
-  PADLORE — Reassurance strip (right under the hero)
-  - Short, verified facts only (no unconfirmed shipping or other promises).
-  - One block per item: icon, title, one-line description. Order = block order.
-  - Semantic list; titles are not headings (the strip has no section heading).
+  PADLORE — Kinetic Index (reassurance, right under the hero)
+  - Each block is one line: an oversized Syne title (outline until active),
+    an optional accent word in violet, a short line and an optional link.
+  - Motion (assets/padlore-kinetic-index.js, no library):
+      · lines rise in once, one after the other, when the section enters the screen;
+      · the line crossing the middle of the screen fills in (outline → solid);
+      · on computers, hovering a line fills it.
+  - Without JavaScript, with reduced motion or in the theme editor: every title
+    is shown filled, with no movement.
 {% endcomment %}
 
 {{ 'section-padlore-reassurance.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'padlore-kinetic-index.js' | asset_url }}" defer="defer"></script>
 
 {%- style -%}
-  #PadloreReassurance-{{ section.id }} {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  #PadloreIndex-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.6 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.6 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
-    #PadloreReassurance-{{ section.id }} {
+    #PadloreIndex-{{ section.id }} {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
@@ -22,24 +28,44 @@
 {%- endstyle -%}
 
 <div
-  id="PadloreReassurance-{{ section.id }}"
-  class="padlore-reassurance color-{{ section.settings.color_scheme }} gradient"
+  id="PadloreIndex-{{ section.id }}"
+  class="padlore-index color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_glow %} padlore-index--glow{% endif %}"
+  data-padlore-index
 >
   {%- if section.blocks.size > 0 -%}
-    <ul class="padlore-reassurance__list page-width list-unstyled" role="list">
+    <ul class="padlore-index__list page-width list-unstyled" role="list">
       {%- for block in section.blocks -%}
-        <li class="padlore-reassurance__item" {{ block.shopify_attributes }}>
-          <span class="padlore-reassurance__icon">
-            {%- render 'padlore-icon', icon: block.settings.icon, size: 28 -%}
-          </span>
-          <div class="padlore-reassurance__text">
-            {%- if block.settings.title != blank -%}
-              <p class="padlore-reassurance__title">{{ block.settings.title | escape }}</p>
-            {%- endif -%}
-            {%- if block.settings.text != blank -%}
-              <p class="padlore-reassurance__description">{{ block.settings.text | escape }}</p>
-            {%- endif -%}
-          </div>
+        {%- liquid
+          assign title = block.settings.title | escape
+          assign accent = block.settings.accent | strip | escape
+          if accent != blank and title contains accent
+            assign accent_html = '<span class="padlore-index__accent">' | append: accent | append: '</span>'
+            assign title = title | replace_first: accent, accent_html
+          endif
+        -%}
+        <li class="padlore-index__item" style="--i: {{ forloop.index0 }};" {{ block.shopify_attributes }}>
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="padlore-index__row padlore-index__row--link">
+          {%- else -%}
+            <div class="padlore-index__row">
+          {%- endif -%}
+              <span class="padlore-index__title">{{ title }}</span>
+              {%- if block.settings.text != blank -%}
+                <span class="padlore-index__text">
+                  <span class="padlore-index__dash" aria-hidden="true"></span>
+                  {{- block.settings.text | escape -}}
+                  {%- if block.settings.link != blank -%}
+                    <svg class="padlore-index__arrow" aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 20 20" fill="none">
+                      <path d="M4 10h11.5M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  {%- endif -%}
+                </span>
+              {%- endif -%}
+          {%- if block.settings.link != blank -%}
+            </a>
+          {%- else -%}
+            </div>
+          {%- endif -%}
         </li>
       {%- endfor -%}
     </ul>
@@ -48,9 +74,9 @@
 
 {% schema %}
 {
-  "name": "PADLORE Reassurance",
+  "name": "PADLORE Kinetic Index",
   "tag": "section",
-  "class": "section section-padlore-reassurance",
+  "class": "section section-padlore-index",
   "max_blocks": 4,
   "settings": [
     {
@@ -60,92 +86,81 @@
       "default": "scheme-1"
     },
     {
+      "type": "checkbox",
+      "id": "show_glow",
+      "label": "Soft violet glow",
+      "default": true
+    },
+    {
       "type": "range",
       "id": "padding_top",
       "min": 0,
-      "max": 100,
-      "step": 4,
+      "max": 160,
+      "step": 8,
       "unit": "px",
       "label": "Top padding",
-      "default": 40
+      "default": 96
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "min": 0,
-      "max": 100,
-      "step": 4,
+      "max": 160,
+      "step": 8,
       "unit": "px",
       "label": "Bottom padding",
-      "default": 40
+      "default": 96
     }
   ],
   "blocks": [
     {
-      "type": "item",
-      "name": "Item",
+      "type": "line",
+      "name": "Line",
       "settings": [
-        {
-          "type": "select",
-          "id": "icon",
-          "label": "Icon",
-          "options": [
-            { "value": "ruler", "label": "Ruler (sizes)" },
-            { "value": "palette", "label": "Palette (designs)" },
-            { "value": "desk", "label": "Desk setup" },
-            { "value": "resize", "label": "Dimensions" },
-            { "value": "layers", "label": "Layers (collections)" },
-            { "value": "brush", "label": "Brush (custom)" },
-            { "value": "sparkle", "label": "Sparkle" },
-            { "value": "lock", "label": "Lock (secure checkout)" },
-            { "value": "truck", "label": "Truck (shipping)" },
-            { "value": "globe", "label": "Globe (international)" }
-          ],
-          "default": "ruler"
-        },
         {
           "type": "text",
           "id": "title",
           "label": "Title",
+          "info": "Keep it short (about 13 characters max) so it fits on one line.",
           "default": "30 Sizes"
         },
         {
           "type": "text",
+          "id": "accent",
+          "label": "Word in violet",
+          "info": "Must appear in the title, e.g. \"30\". Leave empty for none.",
+          "default": "30"
+        },
+        {
+          "type": "text",
           "id": "text",
-          "label": "Description",
-          "info": "One short line. Only state facts that are confirmed.",
-          "default": "From 25×20 to 120×57 cm"
+          "label": "Short line",
+          "default": "Find your fit"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)",
+          "info": "Makes the whole line clickable."
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "PADLORE Reassurance",
+      "name": "PADLORE Kinetic Index",
       "blocks": [
         {
-          "type": "item",
-          "settings": {
-            "icon": "ruler",
-            "title": "30 Sizes",
-            "text": "From 25×20 to 120×57 cm"
-          }
+          "type": "line",
+          "settings": { "title": "30 Sizes", "accent": "30", "text": "Find your fit" }
         },
         {
-          "type": "item",
-          "settings": {
-            "icon": "palette",
-            "title": "Artistic Designs",
-            "text": "Explore six distinctive collections for your desk."
-          }
+          "type": "line",
+          "settings": { "title": "6 Collections", "accent": "6", "text": "Explore your style", "link": "/collections" }
         },
         {
-          "type": "item",
-          "settings": {
-            "icon": "desk",
-            "title": "Find Your Fit",
-            "text": "Choose dimensions that suit your workspace."
-          }
+          "type": "line",
+          "settings": { "title": "Your Style", "accent": "Your", "text": "Make it personal" }
         }
       ]
     }

@@ -61,40 +61,44 @@
     "padlore_reassurance": {
       "type": "padlore-reassurance",
       "blocks": {
-        "item_sizes": {
-          "type": "item",
+        "line_sizes": {
+          "type": "line",
           "settings": {
-            "icon": "ruler",
             "title": "30 Sizes",
-            "text": "From 25×20 to 120×57 cm"
+            "accent": "30",
+            "text": "Find your fit",
+            "link": ""
           }
         },
-        "item_designs": {
-          "type": "item",
+        "line_collections": {
+          "type": "line",
           "settings": {
-            "icon": "palette",
-            "title": "Artistic Designs",
-            "text": "Explore six distinctive collections for your desk."
+            "title": "6 Collections",
+            "accent": "6",
+            "text": "Explore your style",
+            "link": "/collections"
           }
         },
-        "item_fit": {
-          "type": "item",
+        "line_style": {
+          "type": "line",
           "settings": {
-            "icon": "desk",
-            "title": "Find Your Fit",
-            "text": "Choose dimensions that suit your workspace."
+            "title": "Your Style",
+            "accent": "Your",
+            "text": "Make it personal",
+            "link": "shopify://pages/customize"
           }
         }
       },
       "block_order": [
-        "item_sizes",
-        "item_designs",
-        "item_fit"
+        "line_sizes",
+        "line_collections",
+        "line_style"
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "padding_top": 40,
-        "padding_bottom": 40
+        "show_glow": true,
+        "padding_top": 96,
+        "padding_bottom": 96
       }
     }
   },

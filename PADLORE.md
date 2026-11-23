@@ -234,8 +234,15 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   ≥ 2400 px), logo et favicon, section « Featured products » de Dawn
   (remplacée en phase 3), devise principale en EUR, titre et description SEO
   de la boutique (phase 5).
-- **Accueil phase 2 — réassurance** : section `padlore-reassurance` sous le hero
-  (3 blocs éditables : icône, titre, description ; textes validés par le
-  fondateur et le chef de projet : « 30 Sizes », « Artistic Designs »,
-  « Find Your Fit »). Icônes dans `snippets/padlore-icon.liquid`.
+- **Accueil phase 2 — réassurance (v2, « Kinetic Index »)** : première version
+  (3 colonnes avec icônes) refusée car trop « thème Shopify ». Nouvelle
+  direction choisie par Claude (liberté créative donnée par le fondateur) :
+  index typographique en Syne géant. Contenu : « 30 Sizes — Find your fit »,
+  « 6 Collections — Explore your style » (lien /collections), « Your Style —
+  Make it personal » (lien page Customize). Mot en violet réglable par ligne.
+  Mouvement : lignes révélées une fois au défilement, la ligne au centre de
+  l'écran se remplit (contour → plein), remplissage au survol sur ordinateur.
+  Sans JS, avec animations réduites ou dans l'éditeur : titres pleins, statiques.
+  Fichiers : `sections/padlore-reassurance.liquid`,
+  `assets/section-padlore-reassurance.css`, `assets/padlore-kinetic-index.js`.
   Chiffres des titres Syne en style classique (`lining-nums`).
