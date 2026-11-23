@@ -40,7 +40,7 @@
 <section
   id="PadloreHero-{{ section.id }}"
   class="padlore-hero padlore-hero--{{ section.settings.height }} padlore-hero--layout-{{ section.settings.layout_desktop }} padlore-hero--align-{{ section.settings.text_alignment }} color-{{ section.settings.color_scheme }} gradient{% if has_image %} padlore-hero--has-image{% else %} padlore-hero--no-image{% endif %}{% if mobile_image != blank %} padlore-hero--has-mobile-image{% endif %}"
-  style="--padlore-hero-overlay: {{ overlay }};"
+  style="--padlore-hero-overlay: {{ overlay }}; --padlore-hero-mobile-overlap: {{ section.settings.mobile_text_overlap }}vw;"
 >
   {%- if has_image -%}
     <div class="padlore-hero__media">
@@ -153,6 +153,17 @@
       "id": "image_mobile",
       "label": "Mobile image",
       "info": "Portrait photo (about 4:5 or 9:16), at least 1100 px wide. The text sits over it. If empty, the desktop image is used."
+    },
+    {
+      "type": "range",
+      "id": "mobile_text_overlap",
+      "min": 0,
+      "max": 70,
+      "step": 2,
+      "unit": "%",
+      "label": "Mobile: move text up over the image",
+      "info": "Only with a mobile image. Higher = less dark space between the image and the heading. Keep the product clear of the text.",
+      "default": 48
     },
     {
       "type": "range",

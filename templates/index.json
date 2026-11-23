@@ -17,6 +17,7 @@
         "overlay_opacity": 35,
         "heading": "Your Pad. Your Story.",
         "heading_accent": true,
+        "mobile_text_overlap": 48,
         "subheading": "Turn your workspace into something personal. Explore artistic desk mats designed to complement your setup.",
         "button_label_1": "Shop Collections",
         "button_link_1": "/collections",

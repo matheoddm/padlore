@@ -116,7 +116,7 @@
   .padlore-hero--has-mobile-image .padlore-hero__content {
     position: relative;
     z-index: 1;
-    margin-top: -38vw;
+    margin-top: calc(-1 * var(--padlore-hero-mobile-overlap, 48vw));
     padding-top: 0;
     padding-bottom: 4.8rem;
   }
