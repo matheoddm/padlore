@@ -39,7 +39,7 @@
 
 <section
   id="PadloreHero-{{ section.id }}"
-  class="padlore-hero padlore-hero--{{ section.settings.height }} padlore-hero--layout-{{ section.settings.layout_desktop }} padlore-hero--align-{{ section.settings.text_alignment }} color-{{ section.settings.color_scheme }} gradient{% if has_image %} padlore-hero--has-image{% else %} padlore-hero--no-image{% endif %}"
+  class="padlore-hero padlore-hero--{{ section.settings.height }} padlore-hero--layout-{{ section.settings.layout_desktop }} padlore-hero--align-{{ section.settings.text_alignment }} color-{{ section.settings.color_scheme }} gradient{% if has_image %} padlore-hero--has-image{% else %} padlore-hero--no-image{% endif %}{% if mobile_image != blank %} padlore-hero--has-mobile-image{% endif %}"
   style="--padlore-hero-overlay: {{ overlay }};"
 >
   {%- if has_image -%}

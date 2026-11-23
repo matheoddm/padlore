@@ -82,13 +82,53 @@
   margin: 0 auto;
 }
 
+/*
+  Phones with a dedicated mobile image: the image is shown whole at the top,
+  and the text starts over its dark lower part, then continues below it.
+  The product never sits behind the text.
+*/
+@media screen and (max-width: 749px) {
+  .padlore-hero--has-mobile-image {
+    display: block;
+    min-height: 0;
+  }
+
+  .padlore-hero--has-mobile-image .padlore-hero__media {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+  }
+
+  .padlore-hero--has-mobile-image .padlore-hero__image {
+    height: auto;
+  }
+
+  /* Bottom of the image melts into the dark background. */
+  .padlore-hero--has-mobile-image .padlore-hero__media::after {
+    background: linear-gradient(
+      to top,
+      rgb(var(--color-background)) 0%,
+      rgba(var(--color-background), 0.85) 18%,
+      rgba(var(--color-background), 0) 45%
+    );
+  }
+
+  .padlore-hero--has-mobile-image .padlore-hero__content {
+    position: relative;
+    z-index: 1;
+    margin-top: -38vw;
+    padding-top: 0;
+    padding-bottom: 4.8rem;
+  }
+}
+
 /* Phones with an image: text sits in the lower part, over the darker gradient. */
 @media screen and (max-width: 749px) {
-  .padlore-hero--has-image {
+  .padlore-hero--has-image:not(.padlore-hero--has-mobile-image) {
     align-items: flex-end;
   }
 
-  .padlore-hero--has-image .padlore-hero__content {
+  .padlore-hero--has-image:not(.padlore-hero--has-mobile-image) .padlore-hero__content {
     padding-top: 24rem;
     padding-bottom: 4.8rem;
   }
