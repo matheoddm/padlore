@@ -3,7 +3,7 @@
 .padlore-collections {
   position: relative;
   overflow: hidden;
-  --padlore-collections-radius: 2rem;
+  --padlore-collections-radius: 1.6rem;
 }
 
 /* ---------- Header ---------- */
@@ -27,10 +27,10 @@
 
 .padlore-collections__heading {
   margin: 0;
-  max-width: 14ch;
-  font-size: clamp(3.2rem, 5vw, 7.2rem);
-  font-weight: 800;
-  line-height: 0.95;
+  max-width: 18ch;
+  font-size: clamp(2.6rem, 3.4vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1;
   letter-spacing: 0;
   color: rgb(var(--color-foreground));
 }
@@ -152,6 +152,7 @@
   text-decoration: none;
   isolation: isolate;
   -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 0.1rem 0.2rem rgba(18, 18, 26, 0.06), 0 1.6rem 4rem -1.6rem rgba(18, 18, 26, 0.18);
 }
 
 .padlore-collections--tall .padlore-collections__card {
@@ -169,13 +170,33 @@
   background-color: #1b1a26;
 }
 
-/* No image yet: plain dark card with a soft violet light (no stand-in visual).
+/* No image yet: plain lavender card with the name in black (no stand-in visual).
    Dawn hides empty divs (div:empty), hence the doubled class to show it. */
 .padlore-collections__media.padlore-collections__media--empty {
   display: block;
-  background:
-    radial-gradient(120% 80% at 70% 25%, rgba(139, 92, 246, 0.24), rgba(139, 92, 246, 0) 60%),
-    #1b1a26;
+  background: linear-gradient(160deg, #e4e0ee 0%, #d8d4e5 100%);
+}
+
+.padlore-collections__card--empty {
+  color: #12121a;
+}
+
+.padlore-collections__card--empty::before {
+  display: none;
+}
+
+.padlore-collections__card--empty .padlore-collections__name {
+  color: #12121a;
+}
+
+.padlore-collections__card--empty .padlore-collections__explore {
+  color: rgba(18, 18, 26, 0.7);
+}
+
+.padlore-collections__card--empty .padlore-collections__arrow {
+  border-color: rgba(18, 18, 26, 0.35);
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #12121a;
 }
 
 .padlore-collections__image {
@@ -192,18 +213,8 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(to top, rgba(18, 18, 26, 0.88) 0%, rgba(18, 18, 26, 0.35) 38%, rgba(18, 18, 26, 0) 62%);
-}
-
-/* Violet outline drawn inside the card on hover. */
-.padlore-collections__card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  box-shadow: inset 0 0 0 0.15rem rgba(139, 92, 246, 0);
-  transition: box-shadow 400ms ease;
-  pointer-events: none;
+  /* just enough darkness at the bottom to read the name; the artwork stays bright */
+  background: linear-gradient(to top, rgba(18, 18, 26, 0.72) 0%, rgba(18, 18, 26, 0.25) 26%, rgba(18, 18, 26, 0) 42%);
 }
 
 .padlore-collections__caption {
@@ -243,7 +254,7 @@
   width: 2.4rem;
   height: 0.15rem;
   border-radius: 0.2rem;
-  background-color: var(--padlore-violet, #8b5cf6);
+  background-color: currentColor;
   transition: width 400ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
 }
 
@@ -262,7 +273,7 @@
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   color: #ffffff;
-  transition: background-color 300ms ease, border-color 300ms ease;
+  transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease;
 }
 
 .padlore-collections__arrow svg {
@@ -276,10 +287,6 @@
     transform: scale(1.05);
   }
 
-  .padlore-collections__card:not(.padlore-collections__card--static):hover::after {
-    box-shadow: inset 0 0 0 0.15rem rgba(139, 92, 246, 0.85);
-  }
-
   .padlore-collections__card:hover .padlore-collections__name {
     transform: translateY(-0.3rem);
   }
@@ -289,8 +296,9 @@
   }
 
   .padlore-collections__card:hover .padlore-collections__arrow {
-    background-color: var(--padlore-violet, #8b5cf6);
-    border-color: var(--padlore-violet, #8b5cf6);
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #12121a;
   }
 
   .padlore-collections__card:hover .padlore-collections__arrow svg {
@@ -329,8 +337,8 @@
 @media (prefers-reduced-motion: no-preference) {
   [data-motion='on'] .padlore-collections__item {
     opacity: 0;
-    transform: translateY(3.2rem);
-    transition: opacity 600ms ease, transform 900ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+    transform: translateY(1.6rem);
+    transition: opacity 600ms ease, transform 800ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
     transition-delay: calc(var(--i, 0) * 90ms);
   }
 

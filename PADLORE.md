@@ -258,3 +258,13 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   `sections/padlore-collections.liquid`, `assets/section-padlore-collections.css`,
   `assets/padlore-collections.js`. Note : Dawn masque les `div` vides
   (`div:empty`), d'où une règle dédiée pour la carte sans image.
+- **Rééquilibrage « premium editorial lifestyle »** (demande du fondateur et du
+  chef de projet : moins futuriste/gaming, cible aussi télétravailleurs,
+  créatifs, étudiants). Hero inchangé. Index : section « PADLORE Editorial
+  Index » (titres Syne 600 en casse normale ~30 px, plus de contours ni de
+  remplissage, hauteur réduite, violet limité au petit trait et à la flèche,
+  survol discret, apparition douce). Collections : fond blanc cassé, titre plus
+  petit sans mot violet, dégradé réduit pour laisser l'art visible, ombre
+  légère, survol sans liseré (flèche qui devient blanche), carte sans image en
+  lavande. Règle pour la suite : une seule section « forte » par écran, le
+  violet reste un accent.

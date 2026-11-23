@@ -1,33 +1,9 @@
 /*
-  PADLORE — Kinetic Index
-  Default state (no JS, reduced motion, theme editor): every title filled, static.
-  [data-motion="on"] (set by padlore-kinetic-index.js): outlines, reveal, active line.
+  PADLORE — Editorial Index
+  Calm, compact lines. Violet only on the small dash and the arrow.
 */
 
-.padlore-index {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  --padlore-index-ink: rgb(var(--color-foreground));
-  --padlore-index-line: rgba(var(--color-foreground), 0.12);
-}
-
-/* Soft violet light, echoing the hero's lighting. */
-.padlore-index--glow::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  top: 50%;
-  right: -12%;
-  width: min(70rem, 70vw);
-  aspect-ratio: 1;
-  transform: translateY(-50%);
-  background: radial-gradient(closest-side, rgba(139, 92, 246, 0.14), rgba(139, 92, 246, 0));
-  pointer-events: none;
-}
-
 .padlore-index__list {
-  container-type: inline-size;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -39,93 +15,88 @@
 }
 
 .padlore-index__item {
-  border-top: 0.1rem solid var(--padlore-index-line);
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.1);
 }
 
 .padlore-index__item:last-child {
-  border-bottom: 0.1rem solid var(--padlore-index-line);
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.1);
 }
 
+/* Phones: title on its own line, short line underneath, arrow on the right. */
 .padlore-index__row {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.8rem;
-  padding: 2rem 0;
-  color: inherit;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'title arrow'
+    'text arrow';
+  align-items: center;
+  column-gap: 1.6rem;
+  row-gap: 0.4rem;
+  padding: 1.6rem 0;
+  color: rgb(var(--color-foreground));
   text-decoration: none;
 }
 
+/* Computers and tablets: one line — title | short line | arrow. */
 @media screen and (min-width: 750px) {
   .padlore-index__row {
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: end;
-    gap: 3.2rem;
-    padding: 2.8rem 0;
+    grid-template-columns: minmax(20rem, 34%) minmax(0, 1fr) auto;
+    grid-template-areas: 'title text arrow';
+    column-gap: 3.2rem;
+    padding: 2rem 0;
   }
 }
 
-/* ---------- Title ---------- */
-
 .padlore-index__title {
-  display: block;
+  grid-area: title;
   font-family: var(--font-heading-family);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.005em;
-  line-height: 0.95;
+  font-weight: 600;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   font-variant-numeric: lining-nums;
-  text-wrap: balance;
-  /*
-    Syne 800 is very wide: "6 COLLECTIONS" measures 13.5 × the font size.
-    Phones: the longest title fills the width without wrapping.
-  */
-  font-size: clamp(2rem, calc(100cqi / 14.2), 8.8rem);
-  color: var(--padlore-index-ink);
 }
 
 @media screen and (min-width: 750px) {
-  /* leaves room for the short line on the right */
   .padlore-index__title {
-    font-size: clamp(3.2rem, calc((100cqi - 26rem) / 14.2), 8.8rem);
+    font-size: clamp(2.4rem, 2.2vw, 3rem);
   }
 }
 
-.padlore-index__accent {
-  color: var(--padlore-violet, #8b5cf6);
-}
-
-/* ---------- Short line ---------- */
-
 .padlore-index__text {
+  grid-area: text;
   display: inline-flex;
   align-items: center;
   gap: 1.2rem;
-  font-size: 1.6rem;
-  font-weight: 500;
+  font-size: 1.5rem;
   line-height: 1.4;
-  white-space: nowrap;
-  color: rgba(var(--color-foreground), 0.8);
+  color: rgba(var(--color-foreground), 0.68);
 }
 
 @media screen and (min-width: 750px) {
   .padlore-index__text {
-    font-size: 1.7rem;
-    padding-bottom: 0.6rem;
+    font-size: 1.6rem;
   }
 }
 
 .padlore-index__dash {
   display: inline-block;
-  width: 4rem;
+  width: 1.6rem;
   height: 0.15rem;
   border-radius: 0.2rem;
   background-color: var(--padlore-violet, #8b5cf6);
-  transform-origin: left center;
+  transition: width 400ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
 }
 
 .padlore-index__arrow {
-  flex-shrink: 0;
+  grid-area: arrow;
   color: var(--padlore-violet, #8b5cf6);
+  transition: transform 300ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+
+.padlore-index__title,
+.padlore-index__text {
+  transition: transform 400ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
 }
 
 .padlore-index__row--link:focus-visible {
@@ -134,90 +105,42 @@
   border-radius: 0.4rem;
 }
 
-/* ================= Motion (only when the script switched it on) ================= */
-
-@media (prefers-reduced-motion: no-preference) {
-  /* Outline titles; the fill sweeps in from the left on the active line. */
-  [data-motion='on'] .padlore-index__title {
-    color: transparent;
-    -webkit-text-stroke: 0.12rem var(--padlore-index-ink);
-    background-image: linear-gradient(90deg, var(--padlore-index-ink) 0 50%, transparent 50% 100%);
-    background-size: 200% 100%;
-    background-position: 100% 0;
-    -webkit-background-clip: text;
-    background-clip: text;
-    transition: background-position 700ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+/* Subtle hover on computers: the line slides a little, the dash grows. */
+@media (hover: hover) and (pointer: fine) {
+  .padlore-index__row--link:hover .padlore-index__title,
+  .padlore-index__row--link:hover .padlore-index__text {
+    transform: translateX(0.6rem);
   }
 
-  /* The violet word is always filled. */
-  [data-motion='on'] .padlore-index__accent {
-    color: var(--padlore-violet, #8b5cf6);
-    -webkit-text-stroke: 0;
-    -webkit-text-fill-color: var(--padlore-violet, #8b5cf6);
+  .padlore-index__row--link:hover .padlore-index__dash {
+    width: 3.2rem;
   }
 
-  [data-motion='on'] .padlore-index__item.is-active .padlore-index__title {
-    background-position: 0 0;
-  }
-
-  [data-motion='on'] .padlore-index__dash {
-    transform: scaleX(0.5);
-    transition: transform 400ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
-  }
-
-  [data-motion='on'] .padlore-index__item.is-active .padlore-index__dash {
-    transform: scaleX(1);
-  }
-
-  [data-motion='on'] .padlore-index__arrow {
-    transition: transform 300ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
-  }
-
-  [data-motion='on'] .padlore-index__item.is-active .padlore-index__arrow {
+  .padlore-index__row--link:hover .padlore-index__arrow {
     transform: translateX(0.4rem);
   }
+}
 
-  /* Computers: hovering a line fills it (and only it). */
-  @media (hover: hover) and (pointer: fine) {
-    [data-motion='on'] .padlore-index__list:hover .padlore-index__item:not(:hover) .padlore-index__title {
-      background-position: 100% 0;
-    }
-
-    [data-motion='on'] .padlore-index__list:hover .padlore-index__item:not(:hover) .padlore-index__dash {
-      transform: scaleX(0.5);
-    }
-
-    [data-motion='on'] .padlore-index__list:hover .padlore-index__item:not(:hover) .padlore-index__arrow {
-      transform: none;
-    }
-
-    [data-motion='on'] .padlore-index__item:hover .padlore-index__title {
-      background-position: 0 0;
-    }
-
-    [data-motion='on'] .padlore-index__item:hover .padlore-index__dash {
-      transform: scaleX(1);
-    }
-
-    [data-motion='on'] .padlore-index__item:hover .padlore-index__arrow {
-      transform: translateX(0.4rem);
-    }
-  }
-
-  /* Entrance: each line rises from behind a mask, once, one after the other. */
-  [data-motion='on'] .padlore-index__row {
-    clip-path: inset(0 0 100% 0);
-    transform: translateY(2.4rem);
+/* Soft entrance, once (only when the script switched motion on). */
+@media (prefers-reduced-motion: no-preference) {
+  [data-motion='on'] .padlore-index__item {
     opacity: 0;
-    transition: clip-path 800ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
-      transform 800ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
-      opacity 500ms ease;
-    transition-delay: calc(var(--i, 0) * 110ms);
+    transform: translateY(1.2rem);
+    transition: opacity 600ms ease, transform 700ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+    transition-delay: calc(var(--i, 0) * 80ms);
   }
 
-  [data-motion='on'].is-revealed .padlore-index__row {
-    clip-path: inset(-0.2em 0 -0.2em 0);
-    transform: none;
+  [data-motion='on'].is-revealed .padlore-index__item {
     opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .padlore-index__title,
+  .padlore-index__text,
+  .padlore-index__dash,
+  .padlore-index__arrow {
+    transition: none;
   }
 }

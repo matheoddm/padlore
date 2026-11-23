@@ -76,9 +76,9 @@
           -%}
           <li class="padlore-collections__item" style="--i: {{ forloop.index0 }};" {{ block.shopify_attributes }}>
             {%- if card_url -%}
-              <a href="{{ card_url }}" class="padlore-collections__card">
+              <a href="{{ card_url }}" class="padlore-collections__card{% if card_image == blank %} padlore-collections__card--empty{% endif %}">
             {%- else -%}
-              <div class="padlore-collections__card padlore-collections__card--static">
+              <div class="padlore-collections__card padlore-collections__card--static{% if card_image == blank %} padlore-collections__card--empty{% endif %}">
             {%- endif -%}
                 <div class="padlore-collections__media{% if card_image == blank %} padlore-collections__media--empty{% endif %}">
                   {%- if card_image != blank -%}
@@ -156,7 +156,7 @@
       "id": "heading_accent",
       "label": "Word in violet",
       "info": "Must appear in the heading. Leave empty for none.",
-      "default": "aesthetic."
+      "default": ""
     },
     {
       "type": "text",
@@ -201,7 +201,7 @@
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Color scheme",
-      "default": "scheme-3"
+      "default": "scheme-1"
     },
     {
       "type": "range",
@@ -211,7 +211,7 @@
       "step": 8,
       "unit": "px",
       "label": "Top padding",
-      "default": 104
+      "default": 24
     },
     {
       "type": "range",
@@ -221,7 +221,7 @@
       "step": 8,
       "unit": "px",
       "label": "Bottom padding",
-      "default": 104
+      "default": 96
     }
   ],
   "blocks": [

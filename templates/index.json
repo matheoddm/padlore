@@ -65,7 +65,6 @@
           "type": "line",
           "settings": {
             "title": "30 Sizes",
-            "accent": "30",
             "text": "Find your fit",
             "link": ""
           }
@@ -74,7 +73,6 @@
           "type": "line",
           "settings": {
             "title": "6 Collections",
-            "accent": "6",
             "text": "Explore your style",
             "link": "/collections"
           }
@@ -83,7 +81,6 @@
           "type": "line",
           "settings": {
             "title": "Your Style",
-            "accent": "Your",
             "text": "Make it personal",
             "link": "shopify://pages/customize"
           }
@@ -96,9 +93,8 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "show_glow": true,
-        "padding_top": 96,
-        "padding_bottom": 96
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
     "padlore_collections": {
@@ -141,15 +137,15 @@
       ],
       "settings": {
         "heading": "Find your aesthetic.",
-        "heading_accent": "aesthetic.",
+        "heading_accent": "",
         "subheading": "Different moods. One space that's yours.",
         "link_label": "View All Collections",
         "link": "/collections",
         "explore_label": "Explore",
         "card_ratio": "portrait",
-        "color_scheme": "scheme-3",
-        "padding_top": 104,
-        "padding_bottom": 104
+        "color_scheme": "scheme-1",
+        "padding_top": 24,
+        "padding_bottom": 96
       }
     }
   },
