@@ -294,3 +294,8 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   sans image : texte seul centré). Présentation seulement : le configurateur
   reste un chantier distinct. Script commun d'apparition : `assets/padlore-reveal.js`.
   La section « Featured products » de Dawn a été retirée de l'accueil.
+- **À faire plus tard (idée validée)** : préparer un produit « modèle » avec les
+  30 tailles (fichier CSV d'import Shopify, statut Brouillon), puis le dupliquer
+  pour chaque design (bouton « Dupliquer » de Shopify, sans copier les images).
+  Questions à trancher : grille de prix (ou prix provisoire unique) et nom du
+  produit modèle.
