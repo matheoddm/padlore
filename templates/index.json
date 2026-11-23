@@ -14,10 +14,10 @@
       "settings": {
         "image_desktop": "shopify://shop_images/padlore-hero-desktop-zen-japan.png",
         "image_mobile": "shopify://shop_images/padlore-hero-mobile-zen-japan.png",
+        "mobile_text_overlap": 48,
         "overlay_opacity": 35,
         "heading": "Your Pad. Your Story.",
         "heading_accent": true,
-        "mobile_text_overlap": 48,
         "subheading": "Turn your workspace into something personal. Explore artistic desk mats designed to complement your setup.",
         "button_label_1": "Shop Collections",
         "button_link_1": "/collections",
@@ -64,11 +64,11 @@
         "line_style"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "padding_top": 56,
-        "padding_bottom": 56,
         "layout": "sheet",
-        "surround_scheme": "scheme-3"
+        "color_scheme": "scheme-1",
+        "surround_scheme": "scheme-3",
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
     "padlore_collections": {
@@ -128,7 +128,7 @@
         "product_1": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "forest-desk-mat"
           }
         },
         "product_2": {
