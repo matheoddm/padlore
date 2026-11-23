@@ -119,8 +119,8 @@ Référence : `CAHIER_DES_CHARGES.md` (cahier des charges officiel V1).
 | 1     | Préparation technique (Dawn → PADLORE)                          | ✅ Terminé  |
 | 2     | Boutique de développement + liaison GitHub                      | ✅ Terminé  |
 | 3     | Style général (polices, couleurs, boutons)                      | ✅ Validé   |
-| Accueil phase 1 | Bandeau d'annonce, header, hero                       | ⏳ À valider |
-| Accueil phase 2 | Réassurance, 4 collections                            | À faire     |
+| Accueil phase 1 | Bandeau d'annonce, header, hero                       | ✅ Validé (23/11/2026) |
+| Accueil phase 2 | Réassurance, 4 collections                            | ⏳ Plan à valider |
 | Accueil phase 3 | 4 produits, section personnalisation                  | À faire     |
 | Accueil phase 4 | Pourquoi PADLORE, guide des tailles, FAQ              | À faire     |
 | Accueil phase 5 | Footer et finalisation                                | À faire     |
@@ -229,3 +229,8 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   Disposition responsive du hero : téléphone et tablette = image entière en
   haut puis texte dessous ; ordinateur = texte à gauche, image à droite.
   Réglage « Mobile: move text up over the image » (48 % par défaut).
+- **Accueil phase 1 validée** le 23/11/2026 par le fondateur. Points reportés :
+  image du hero provisoire (à remplacer par un vrai design, idéalement
+  ≥ 2400 px), logo et favicon, section « Featured products » de Dawn
+  (remplacée en phase 3), devise principale en EUR, titre et description SEO
+  de la boutique (phase 5).
