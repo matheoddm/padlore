@@ -67,6 +67,12 @@ Fichiers du style : `assets/padlore.css` (couche PADLORE au-dessus de
     `config/settings_data.json` et des fichiers `templates/*.json` : ces
     fichiers ne sont donc plus du JSON strict (retirer le commentaire avant
     de les lire avec un outil JSON, et le conserver en les réécrivant).
+  - ⚠️ Conflit de synchronisation constaté le 23/11/2026 : en enregistrant
+    dans l'éditeur juste après un push, Shopify a renvoyé sur GitHub son
+    ancienne copie de `sections/padlore-collections.liquid` (annulant une
+    modification). Règles : attendre 2 minutes après un push avant
+    d'enregistrer dans l'éditeur ; Claude compare chaque commit « shopify[bot] »
+    avec son dernier commit et restaure ce qui aurait été écrasé.
 - Au lancement : création d'une vraie boutique (offre payante), reliée au
   même dépôt GitHub. Les produits seront transférés par export/import CSV.
 
