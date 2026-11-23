@@ -12,16 +12,18 @@
     "padlore_hero": {
       "type": "padlore-hero",
       "settings": {
+        "image_desktop": "shopify://shop_images/padlore-hero-desktop-zen-japan.png",
+        "image_mobile": "shopify://shop_images/padlore-hero-mobile-zen-japan.png",
         "overlay_opacity": 35,
-        "layout_desktop": "split",
-        "heading_accent": true,
-        "button_1_arrow": true,
         "heading": "Your Pad. Your Story.",
+        "heading_accent": true,
         "subheading": "Turn your workspace into something personal. Explore artistic desk mats designed to complement your setup.",
         "button_label_1": "Shop Collections",
         "button_link_1": "/collections",
+        "button_1_arrow": true,
         "button_label_2": "Customize Your Mat",
         "button_link_2": "shopify://pages/customize",
+        "layout_desktop": "split",
         "height": "large",
         "text_alignment": "center",
         "color_scheme": "scheme-3"
