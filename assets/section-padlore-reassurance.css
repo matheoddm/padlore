@@ -3,6 +3,46 @@
   Calm, compact lines. Violet only on the small dash and the arrow.
 */
 
+/*
+  "Sheet" layout — the mat on the desk.
+  The surrounding frame continues the dark background of the hero and the
+  collections; the off-white band becomes a rounded sheet resting on it and
+  slightly overlapping the bottom of the hero.
+*/
+.padlore-index-frame--full {
+  background: none;
+}
+
+.padlore-index-frame--sheet {
+  padding: 0 1.2rem;
+}
+
+.padlore-index-frame--sheet .padlore-index {
+  position: relative;
+  z-index: 2;
+  max-width: 152rem;
+  margin: -1.2rem auto 0;
+  border-radius: 2rem;
+  box-shadow: 0 0 0 0.1rem rgba(255, 255, 255, 0.04), 0 3.2rem 8rem -3.2rem rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (min-width: 750px) {
+  .padlore-index-frame--sheet {
+    padding: 0 clamp(1.6rem, 2.2vw, 3.2rem);
+  }
+
+  .padlore-index-frame--sheet .padlore-index {
+    margin-top: -2rem;
+    border-radius: 2.4rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .padlore-index-frame--sheet .padlore-index {
+    margin-top: -5.6rem;
+  }
+}
+
 .padlore-index__list {
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -123,6 +163,16 @@
 
 /* Soft entrance, once (only when the script switched motion on). */
 @media (prefers-reduced-motion: no-preference) {
+  /* the sheet settles into place */
+  .padlore-index-frame--sheet [data-motion='on'].padlore-index {
+    transform: translateY(3.2rem);
+    transition: transform 900ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+  }
+
+  .padlore-index-frame--sheet [data-motion='on'].padlore-index.is-revealed {
+    transform: none;
+  }
+
   [data-motion='on'] .padlore-index__item {
     opacity: 0;
     transform: translateY(1.2rem);

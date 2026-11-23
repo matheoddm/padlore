@@ -23,6 +23,7 @@
   }
 {%- endstyle -%}
 
+<div class="padlore-index-frame padlore-index-frame--{{ section.settings.layout }} color-{{ section.settings.surround_scheme }} gradient">
 <div
   id="PadloreIndex-{{ section.id }}"
   class="padlore-index color-{{ section.settings.color_scheme }} gradient"
@@ -59,6 +60,7 @@
     </ul>
   {%- endif -%}
 </div>
+</div>
 
 {% schema %}
 {
@@ -68,10 +70,28 @@
   "max_blocks": 4,
   "settings": [
     {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "sheet", "label": "Sheet resting on the dark background" },
+        { "value": "full", "label": "Full width band" }
+      ],
+      "default": "sheet",
+      "info": "Sheet: the band sits like a mat on a desk, slightly over the bottom of the section above."
+    },
+    {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "Color scheme",
+      "label": "Band color scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "surround_scheme",
+      "label": "Background around the sheet",
+      "info": "Use the same dark scheme as the hero and the collections for one continuous surface.",
+      "default": "scheme-3"
     },
     {
       "type": "range",

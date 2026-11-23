@@ -273,3 +273,11 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   tout le reste inchangé. Ordre actuel : hero (noir) → index (blanc cassé) →
   collections (noir). Reste à faire par le fondateur : créer les collections
   et la page « Size Guide », relier les cartes et la ligne « 30 Sizes ».
+- **Raccords entre sections — solution « Le tapis sur le bureau »** (validée par
+  le fondateur) : le hero et les collections forment une seule surface noire
+  continue ; la bande blanc cassé de l'index devient une feuille arrondie posée
+  dessus (cadre `padlore-index-frame--sheet`, fond scheme-3 autour), qui
+  chevauche légèrement le bas du hero (-1,2 rem téléphone, -2 rem tablette,
+  -5,6 rem ordinateur) et se pose en glissant à l'apparition. Bas de la photo du
+  hero en fondu sur ordinateur. Réglages dans l'éditeur : « Layout » (feuille ou
+  bande pleine largeur) et « Background around the sheet ».
