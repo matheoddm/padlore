@@ -100,11 +100,63 @@
         "padding_top": 96,
         "padding_bottom": 96
       }
+    },
+    "padlore_collections": {
+      "type": "padlore-collections",
+      "blocks": {
+        "collection_zen": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Zen Japan"
+          }
+        },
+        "collection_mono": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Monochrome Flow"
+          }
+        },
+        "collection_gaming": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Futuristic Gaming"
+          }
+        },
+        "collection_celestial": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "title": "Celestial Dream"
+          }
+        }
+      },
+      "block_order": [
+        "collection_zen",
+        "collection_mono",
+        "collection_gaming",
+        "collection_celestial"
+      ],
+      "settings": {
+        "heading": "Find your aesthetic.",
+        "heading_accent": "aesthetic.",
+        "subheading": "Different moods. One space that's yours.",
+        "link_label": "View All Collections",
+        "link": "/collections",
+        "explore_label": "Explore",
+        "card_ratio": "portrait",
+        "color_scheme": "scheme-3",
+        "padding_top": 104,
+        "padding_bottom": 104
+      }
     }
   },
   "order": [
     "padlore_hero",
     "padlore_reassurance",
+    "padlore_collections",
     "featured_collection"
   ]
 }

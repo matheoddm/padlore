@@ -120,7 +120,7 @@ Référence : `CAHIER_DES_CHARGES.md` (cahier des charges officiel V1).
 | 2     | Boutique de développement + liaison GitHub                      | ✅ Terminé  |
 | 3     | Style général (polices, couleurs, boutons)                      | ✅ Validé   |
 | Accueil phase 1 | Bandeau d'annonce, header, hero                       | ✅ Validé (23/11/2026) |
-| Accueil phase 2 | Réassurance, 4 collections                            | ⏳ Réassurance à valider, collections ensuite |
+| Accueil phase 2 | Réassurance, 4 collections                            | ⏳ Index validé, collections à valider |
 | Accueil phase 3 | 4 produits, section personnalisation                  | À faire     |
 | Accueil phase 4 | Pourquoi PADLORE, guide des tailles, FAQ              | À faire     |
 | Accueil phase 5 | Footer et finalisation                                | À faire     |
@@ -246,3 +246,15 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   Fichiers : `sections/padlore-reassurance.liquid`,
   `assets/section-padlore-reassurance.css`, `assets/padlore-kinetic-index.js`.
   Chiffres des titres Syne en style classique (`lining-nums`).
+- **Kinetic Index validé** par le fondateur et le chef de projet (style
+  éditorial, grandes typographies Syne, survol, accents violets).
+- **Accueil phase 2 — collections** (« Find your aesthetic. ») : section
+  `padlore-collections`, fond noir (validé, au lieu du blanc cassé du cahier,
+  pour l'alternance sombre/clair). 4 cartes égales (choix « A' » d'après la
+  maquette initiale), format 4:5, image du bloc ou de la collection, sinon carte
+  sombre neutre (aucune fausse image). Survol : zoom lent, liseré violet, flèche
+  ronde violette. Téléphone : rangée défilante avec trait de progression.
+  Apparition des cartes une fois au défilement. Fichiers :
+  `sections/padlore-collections.liquid`, `assets/section-padlore-collections.css`,
+  `assets/padlore-collections.js`. Note : Dawn masque les `div` vides
+  (`div:empty`), d'où une règle dédiée pour la carte sans image.
