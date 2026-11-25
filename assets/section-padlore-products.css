@@ -178,17 +178,6 @@
   }
 }
 
-/*
-  Fewer than 4 products: the cards keep the same size as in the row of four
-  and sit centred, instead of leaving empty columns on the right.
-*/
-@media screen and (min-width: 750px) {
-  .padlore-products__grid--few {
-    grid-template-columns: repeat(var(--padlore-products-count, 1), minmax(0, 30rem));
-    justify-content: center;
-  }
-}
-
 /* Phones: a swipeable rail of large cards; the next one peeks in. */
 @media screen and (max-width: 749px) {
   .padlore-products__grid {
