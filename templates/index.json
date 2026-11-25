@@ -166,8 +166,8 @@
         "layout": "sheet",
         "color_scheme": "scheme-1",
         "surround_scheme": "scheme-3",
-        "padding_top": 88,
-        "padding_bottom": 88,
+        "padding_top": 56,
+        "padding_bottom": 56,
         "header_style": "centered",
         "show_index": true
       }
