@@ -1,6 +1,13 @@
-/* PADLORE — Featured products ("The edit.") */
+/*
+  PADLORE — Featured designs
+  Four products side by side on an off-white sheet resting on the dark page.
+  Craft: soft lavender light, long diffuse shadows, product numbers and fine
+  rules, a lift + slow zoom + arrow + violet rule on hover, a masked staggered
+  entrance, and a swipeable rail with a counter on phones.
+*/
 
-/* Sheet resting on the dark background (same principle as the editorial index). */
+/* ---------- Sheet ---------- */
+
 .padlore-products-frame--full {
   background: none;
 }
@@ -26,6 +33,26 @@
   }
 }
 
+/* Soft lavender light from the top: gives the off-white depth. */
+.padlore-products {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.padlore-products::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: -18rem;
+  width: min(110rem, 120%);
+  height: 48rem;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(216, 212, 229, 0.75), rgba(216, 212, 229, 0));
+  pointer-events: none;
+}
+
 /* ---------- Header ---------- */
 
 .padlore-products__header {
@@ -33,7 +60,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 2rem;
-  margin-bottom: 3.2rem;
+  margin-bottom: 3.6rem;
 }
 
 @media screen and (min-width: 750px) {
@@ -41,8 +68,16 @@
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
-    margin-bottom: 4.4rem;
+    margin-bottom: 5.6rem;
   }
+}
+
+.padlore-products__header--centered,
+.padlore-products__header--centered.padlore-products__header {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .padlore-products__heading {
@@ -60,12 +95,18 @@
   color: rgba(var(--color-foreground), 0.7);
 }
 
+.padlore-products__header--centered .padlore-products__subheading {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media screen and (min-width: 750px) {
   .padlore-products__subheading {
     font-size: 1.8rem;
   }
 }
 
+/* Link (split header) */
 .padlore-products__all {
   position: relative;
   display: inline-flex;
@@ -95,20 +136,7 @@
   transition: transform 300ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
 }
 
-/* Centered header with a violet button (chosen layout). */
-.padlore-products__header--centered,
-.padlore-products__header--centered.padlore-products__header {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.padlore-products__header--centered .padlore-products__subheading {
-  margin-left: auto;
-  margin-right: auto;
-}
-
+/* Violet button (centered header) */
 .padlore-products .padlore-products__button {
   --color-button: 139, 92, 246;
   --color-button-text: 255, 255, 255;
@@ -133,18 +161,12 @@
   box-shadow: none;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .padlore-products .padlore-products__button:hover {
-    --color-button: 124, 58, 237;
-  }
-}
-
-/* ---------- Grid ---------- */
+/* ---------- Row of four ---------- */
 
 .padlore-products__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 3.2rem 1.4rem;
+  gap: 4rem 2rem;
   margin: 0;
   padding: 0;
 }
@@ -152,7 +174,31 @@
 @media screen and (min-width: 990px) {
   .padlore-products__grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 2rem;
+    gap: 2.8rem;
+  }
+}
+
+/* Phones: a swipeable rail of large cards; the next one peeks in. */
+@media screen and (max-width: 749px) {
+  .padlore-products__grid {
+    display: flex;
+    gap: 1.4rem;
+    margin: 0 -2.4rem;
+    padding: 0.8rem 2.4rem 2rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 2.4rem;
+    scrollbar-width: none;
+  }
+
+  .padlore-products__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .padlore-products__item {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
   }
 }
 
@@ -169,9 +215,13 @@
   position: relative;
   display: block;
   overflow: hidden;
-  aspect-ratio: 1 / 1;
-  border-radius: 1.4rem;
+  aspect-ratio: 4 / 5;
+  border-radius: 1.6rem;
   background: linear-gradient(160deg, #e4e0ee 0%, #d8d4e5 100%);
+  /* long, diffuse shadow: a print resting on the sheet */
+  box-shadow: 0 0.1rem 0.2rem rgba(18, 18, 26, 0.06), 0 2.4rem 4.8rem -2.8rem rgba(18, 18, 26, 0.38);
+  transition: transform 600ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+    box-shadow 600ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
 }
 
 /* Dawn hides empty divs (div:empty): keep the empty slot visible in the editor. */
@@ -189,35 +239,99 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 900ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
-    opacity 500ms ease;
+  transition: transform 1200ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+    opacity 600ms ease;
 }
 
 .padlore-products__image--second {
   opacity: 0;
 }
 
+/* Round arrow that appears on hover. */
+.padlore-products__go {
+  position: absolute;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #12121a;
+  box-shadow: 0 0.8rem 2rem -0.8rem rgba(18, 18, 26, 0.45);
+  opacity: 0;
+  transform: translateY(1rem) scale(0.9);
+  transition: opacity 400ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+    transform 450ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+
+/* Number, name, price under a fine rule that turns violet. */
+.padlore-products__meta {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    'index name'
+    '. price';
+  column-gap: 1.2rem;
+  margin-top: 1.8rem;
+  padding-top: 1.4rem;
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
+}
+
+.padlore-products__meta::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.1rem;
+  height: 0.2rem;
+  background-color: var(--padlore-violet, #8b5cf6);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 600ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+}
+
+.padlore-products__index {
+  grid-area: index;
+  padding-top: 0.25rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+  color: rgba(var(--color-foreground), 0.42);
+  transition: color 400ms ease;
+}
+
 .padlore-products__name {
-  margin: 1.4rem 0 0;
+  grid-area: name;
+  margin: 0;
   font-family: var(--font-heading-family);
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   font-weight: 600;
   line-height: 1.3;
   letter-spacing: 0;
   text-transform: none;
-}
-
-@media screen and (min-width: 750px) {
-  .padlore-products__name {
-    font-size: 1.7rem;
-  }
+  transition: transform 500ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
 }
 
 .padlore-products__price {
-  margin: 0.6rem 0 0;
+  grid-area: price;
+  margin: 0.5rem 0 0;
   font-size: 1.5rem;
-  color: rgba(var(--color-foreground), 0.68);
+  color: rgba(var(--color-foreground), 0.65);
   font-variant-numeric: tabular-nums;
+}
+
+/* Without numbers: name and price take the full width. */
+.padlore-products__meta:not(:has(.padlore-products__index)) {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'name'
+    'price';
 }
 
 .padlore-products__card:focus-visible,
@@ -227,15 +341,51 @@
   border-radius: 0.6rem;
 }
 
+/* Keyboard users get the same arrow and violet rule as on hover. */
+.padlore-products__card:focus-visible .padlore-products__go {
+  opacity: 1;
+  transform: none;
+}
+
+.padlore-products__card:focus-visible .padlore-products__meta::after {
+  transform: scaleX(1);
+}
+
 /* ---------- Hover (computers only) ---------- */
 
 @media (hover: hover) and (pointer: fine) {
+  .padlore-products__card:not(.padlore-products__card--empty):hover .padlore-products__media {
+    transform: translateY(-0.6rem);
+    box-shadow: 0 0.1rem 0.2rem rgba(18, 18, 26, 0.06), 0 4rem 7.2rem -3.2rem rgba(18, 18, 26, 0.5);
+  }
+
   .padlore-products__card:hover .padlore-products__image {
-    transform: scale(1.04);
+    transform: scale(1.05);
   }
 
   .padlore-products__card--swap:hover .padlore-products__image--second {
     opacity: 1;
+  }
+
+  .padlore-products__card:hover .padlore-products__go {
+    opacity: 1;
+    transform: none;
+  }
+
+  .padlore-products__card:hover .padlore-products__meta::after {
+    transform: scaleX(1);
+  }
+
+  .padlore-products__card:hover .padlore-products__name {
+    transform: translateX(0.4rem);
+  }
+
+  .padlore-products__card:hover .padlore-products__index {
+    color: var(--padlore-violet, #8b5cf6);
+  }
+
+  .padlore-products .padlore-products__button:hover {
+    --color-button: 124, 58, 237;
   }
 
   .padlore-products__all:hover svg {
@@ -243,33 +393,122 @@
   }
 }
 
-/* ---------- Entrance (once, only when the script switched motion on) ---------- */
+/* Touch screens: a short press feedback instead of hover. */
+@media (hover: none) {
+  .padlore-products__card:active .padlore-products__media {
+    transform: scale(0.98);
+    transition-duration: 150ms;
+  }
+
+  /* the arrow stays visible so the card reads as tappable */
+  .padlore-products__go {
+    opacity: 1;
+    transform: none;
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+/* ---------- Phone counter: 01 ——— 04 ---------- */
+
+.padlore-products__counter {
+  display: none;
+}
+
+@media screen and (max-width: 749px) {
+  .padlore-products__counter {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    margin-top: 0.4rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-variant-numeric: tabular-nums;
+    color: rgba(var(--color-foreground), 0.5);
+  }
+
+  .padlore-products__counter-now {
+    color: rgb(var(--color-foreground));
+  }
+
+  .padlore-products__counter-track {
+    position: relative;
+    flex: 1;
+    height: 0.2rem;
+    border-radius: 0.2rem;
+    background-color: rgba(var(--color-foreground), 0.12);
+    overflow: hidden;
+  }
+
+  .padlore-products__counter-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: var(--padlore-rail-thumb, 25%);
+    border-radius: inherit;
+    background-color: var(--padlore-violet, #8b5cf6);
+    transform: translateX(var(--padlore-rail-offset, 0%));
+  }
+}
+
+/* ---------- Entrance: masked, staggered, once ---------- */
 
 @media (prefers-reduced-motion: no-preference) {
   [data-motion='on'] .padlore-products__item {
     opacity: 0;
-    transform: translateY(1.6rem);
-    transition: opacity 600ms ease, transform 800ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
-    transition-delay: calc(var(--i, 0) * 80ms);
+    transform: translateY(3.2rem);
+    transition: opacity 700ms ease, transform 1000ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+  }
+
+  [data-motion='on'] .padlore-products__media {
+    clip-path: inset(14% 0 0 0 round 1.6rem);
+    transition: clip-path 1100ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+      transform 600ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1)),
+      box-shadow 600ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+  }
+
+  /* non-uniform delays feel more natural than a fixed step */
+  [data-motion='on'] .padlore-products__item:nth-child(2),
+  [data-motion='on'] .padlore-products__item:nth-child(2) .padlore-products__media {
+    transition-delay: 90ms;
+  }
+
+  [data-motion='on'] .padlore-products__item:nth-child(3),
+  [data-motion='on'] .padlore-products__item:nth-child(3) .padlore-products__media {
+    transition-delay: 160ms;
+  }
+
+  [data-motion='on'] .padlore-products__item:nth-child(4),
+  [data-motion='on'] .padlore-products__item:nth-child(4) .padlore-products__media {
+    transition-delay: 220ms;
   }
 
   [data-motion='on'].is-revealed .padlore-products__item {
     opacity: 1;
     transform: none;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .padlore-products__image,
-  .padlore-products__all svg {
-    transition: none;
+  [data-motion='on'].is-revealed .padlore-products__media {
+    clip-path: inset(0 0 0 0 round 1.6rem);
+  }
+
+  /* once revealed, hover reacts immediately (no leftover delay) */
+  [data-motion='on'].is-revealed.is-settled .padlore-products__item,
+  [data-motion='on'].is-revealed.is-settled .padlore-products__media {
+    transition-delay: 0ms;
   }
 }
 
-/* Phones: content 2.4rem from the screen edge (1.2rem frame + 1.2rem), like the other sections. */
-@media screen and (max-width: 749px) {
-  .padlore-products-frame--sheet .padlore-products .page-width {
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
+@media (prefers-reduced-motion: reduce) {
+  .padlore-products__media,
+  .padlore-products__image,
+  .padlore-products__go,
+  .padlore-products__meta::after,
+  .padlore-products__name,
+  .padlore-products__index,
+  .padlore-products__all svg {
+    transition: none;
   }
 }

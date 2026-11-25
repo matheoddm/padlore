@@ -349,3 +349,12 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   (version proposée par le chef de projet, choisie par le fondateur ; réglage
   « Header style » pour revenir à la version titre à gauche / lien à droite).
 - Hero : marge latérale de 24 px sur téléphone, comme les autres sections.
+- « Featured designs. » retravaillée (25/11/2026, demande du fondateur : plus
+  de personnalité et d'effets, en gardant les 4 produits côte à côte) :
+  lueur lavande en haut de la feuille, cartes 4:5 avec ombre longue,
+  numéros 01–04 et fine ligne au-dessus du nom ; survol : la carte se soulève,
+  zoom lent, 2e image, rond blanc avec flèche, ligne qui devient violette,
+  numéro violet ; apparition décalée avec dévoilement par masque ; téléphone :
+  rangée défilante avec compteur « 01 — 04 » et barre violette, flèche toujours
+  visible et retour au toucher. Script : `assets/padlore-products.js`.
+  Directions « Gallery Wall » et « Spotlight » proposées puis écartées.

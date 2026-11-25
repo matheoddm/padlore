@@ -22,6 +22,7 @@
 {%- if chosen > 0 or request.design_mode -%}
   {{ 'section-padlore-products.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'padlore-reveal.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'padlore-products.js' | asset_url }}" defer="defer"></script>
 
   {%- style -%}
     #PadloreProducts-{{ section.id }} {
@@ -63,11 +64,13 @@
           {%- endif -%}
         </div>
 
-        <ul class="padlore-products__grid list-unstyled" role="list">
+        <ul class="padlore-products__grid list-unstyled" role="list" data-padlore-rail>
+          {%- assign shown = 0 -%}
           {%- for block in section.blocks -%}
             {%- assign product = block.settings.product -%}
             {%- if product != blank -%}
               {%- liquid
+                assign shown = shown | plus: 1
                 assign first_image = product.featured_media.preview_image
                 assign first_alt = first_image.alt | default: product.title
                 assign second_image = nil
@@ -84,7 +87,7 @@
                         | image_url: width: 1000
                         | image_tag:
                           widths: '300, 450, 600, 800, 1000',
-                          sizes: '(min-width: 990px) 25vw, 50vw',
+                          sizes: '(min-width: 990px) 25vw, (min-width: 750px) 50vw, 80vw',
                           loading: 'lazy',
                           class: 'padlore-products__image',
                           alt: first_alt
@@ -96,35 +99,55 @@
                         | image_url: width: 1000
                         | image_tag:
                           widths: '300, 450, 600, 800, 1000',
-                          sizes: '(min-width: 990px) 25vw, 50vw',
+                          sizes: '(min-width: 990px) 25vw, (min-width: 750px) 50vw, 80vw',
                           loading: 'lazy',
                           class: 'padlore-products__image padlore-products__image--second',
                           alt: ''
                       }}
                     {%- endif -%}
+                    <span class="padlore-products__go" aria-hidden="true">
+                      <svg focusable="false" width="18" height="18" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 10h11.5M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
                   </div>
-                  <h3 class="padlore-products__name">{{ product.title | escape }}</h3>
-                  <p class="padlore-products__price">
-                    {%- if product.price_varies -%}
-                      {{ section.settings.price_prefix | escape }}
-                      {{ product.price_min | money }}
-                    {%- else -%}
-                      {{ product.price | money }}
+                  <div class="padlore-products__meta">
+                    {%- if section.settings.show_index -%}
+                      <span class="padlore-products__index" aria-hidden="true">{% if shown < 10 %}0{% endif %}{{ shown }}</span>
                     {%- endif -%}
-                  </p>
+                    <h3 class="padlore-products__name">{{ product.title | escape }}</h3>
+                    <p class="padlore-products__price">
+                      {%- if product.price_varies -%}
+                        {{ section.settings.price_prefix | escape }}
+                        {{ product.price_min | money }}
+                      {%- else -%}
+                        {{ product.price | money }}
+                      {%- endif -%}
+                    </p>
+                  </div>
                 </a>
               </li>
             {%- elsif request.design_mode -%}
               <li class="padlore-products__item" {{ block.shopify_attributes }}>
                 <div class="padlore-products__card padlore-products__card--empty">
                   <div class="padlore-products__media"></div>
-                  <p class="padlore-products__name">Choose a product</p>
-                  <p class="padlore-products__price">Price from Shopify</p>
+                  <div class="padlore-products__meta">
+                    <p class="padlore-products__name">Choose a product</p>
+                    <p class="padlore-products__price">Price from Shopify</p>
+                  </div>
                 </div>
               </li>
             {%- endif -%}
           {%- endfor -%}
         </ul>
+
+        {%- if chosen > 1 -%}
+          <div class="padlore-products__counter" aria-hidden="true">
+            <span class="padlore-products__counter-now" data-padlore-rail-now>01</span>
+            <span class="padlore-products__counter-track"><span class="padlore-products__counter-bar"></span></span>
+            <span>{% if chosen < 10 %}0{% endif %}{{ chosen }}</span>
+          </div>
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -171,6 +194,12 @@
       "label": "Price prefix",
       "info": "Shown before the lowest price when sizes have different prices.",
       "default": "From"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_index",
+      "label": "Show product numbers (01, 02…)",
+      "default": true
     },
     {
       "type": "checkbox",
