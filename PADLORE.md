@@ -342,3 +342,6 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   produit modèle.
 - Téléphone : marge latérale unifiée à 2,4 rem (24 px) pour l'index, les
   collections, les produits et la personnalisation (tout le texte aligné).
+- Section produits renommée (25/11/2026, choix du fondateur et du chef de
+  projet) : « FEATURED DESIGNS. » / « Discover artistic desk mats made to match
+  your style. » (remplace « The edit. », jugé peu compréhensible).
