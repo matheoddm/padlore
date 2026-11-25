@@ -373,3 +373,9 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
 - **Accueil phase 3 validée** le 25/11/2026 (« Featured designs. » + « Make it
   yours. »). Contrôle complet : theme check 0 erreur, JSON/JS/CSS valides,
   simulation à 360–1920 px avec et sans animations sans problème.
+- ⚠️ **Cause trouvée (25/11/2026)** des écarts entre GitHub et la boutique :
+  Shopify refusait `sections/padlore-collections.liquid` (« Invalid schema:
+  setting heading_accent default can't be blank ») et gardait l'ancienne
+  version. Règle : **jamais de `"default": ""`** dans un schéma de section
+  (omettre la clé). Pour vérifier une synchronisation : Boutique en ligne →
+  Thèmes → bouton « padlore/main ⌄ » → journaux de l'intégration GitHub.
