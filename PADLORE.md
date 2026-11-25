@@ -132,7 +132,7 @@ seul fichier écrasé a été restauré).
 
 **En attente de réponse du fondateur**
 1. Validation de la phase 3 (« The edit. » + « Make it yours. »).
-2. Marge de 24 px aussi sur les boutons du hero sur téléphone ? (oui / non)
+2. ~~Marge de 24 px sur les boutons du hero~~ : faite (25/11/2026).
 
 **À faire par le fondateur dans Shopify**
 - Créer la page « Size Guide » et la relier à la ligne « 30 Sizes » de l'index.
@@ -345,3 +345,7 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
 - Section produits renommée (25/11/2026, choix du fondateur et du chef de
   projet) : « FEATURED DESIGNS. » / « Discover artistic desk mats made to match
   your style. » (remplace « The edit. », jugé peu compréhensible).
+- « Featured designs. » : en-tête centré avec bouton violet « Shop All Mats »
+  (version proposée par le chef de projet, choisie par le fondateur ; réglage
+  « Header style » pour revenir à la version titre à gauche / lien à droite).
+- Hero : marge latérale de 24 px sur téléphone, comme les autres sections.

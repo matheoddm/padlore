@@ -421,3 +421,12 @@
     transition: none;
   }
 }
+
+
+/* Phones: 24px side margin, aligned with the other PADLORE sections. */
+@media screen and (max-width: 749px) {
+  .padlore-hero__content.page-width {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+}

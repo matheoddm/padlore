@@ -95,6 +95,50 @@
   transition: transform 300ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
 }
 
+/* Centered header with a violet button (chosen layout). */
+.padlore-products__header--centered,
+.padlore-products__header--centered.padlore-products__header {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.padlore-products__header--centered .padlore-products__subheading {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.padlore-products .padlore-products__button {
+  --color-button: 139, 92, 246;
+  --color-button-text: 255, 255, 255;
+  color: rgb(var(--color-button-text));
+  gap: 0;
+  margin-top: 0.4rem;
+  padding-bottom: 0;
+}
+
+.padlore-products .padlore-products__button::after {
+  display: none;
+}
+
+.padlore-products .padlore-products__button svg {
+  margin-left: 0.8rem;
+  color: currentColor;
+}
+
+.padlore-products .padlore-products__button:focus-visible {
+  outline: 0.2rem solid var(--padlore-violet, #8b5cf6);
+  outline-offset: 0.3rem;
+  box-shadow: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .padlore-products .padlore-products__button:hover {
+    --color-button: 124, 58, 237;
+  }
+}
+
 /* ---------- Grid ---------- */
 
 .padlore-products__grid {

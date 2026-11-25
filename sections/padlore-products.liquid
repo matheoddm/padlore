@@ -44,7 +44,7 @@
       data-padlore-reveal
     >
       <div class="page-width">
-        <div class="padlore-products__header">
+        <div class="padlore-products__header padlore-products__header--{{ section.settings.header_style }}">
           <div>
             {%- if section.settings.heading != blank -%}
               <h2 class="padlore-products__heading">{{ section.settings.heading | escape }}</h2>
@@ -54,7 +54,7 @@
             {%- endif -%}
           </div>
           {%- if section.settings.link_label != blank and section.settings.link != blank -%}
-            <a href="{{ section.settings.link }}" class="padlore-products__all">
+            <a href="{{ section.settings.link }}" class="padlore-products__all{% if section.settings.header_style == 'centered' %} button button--primary padlore-products__button{% endif %}">
               {{- section.settings.link_label | escape -}}
               <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 20 20" fill="none">
                 <path d="M4 10h11.5M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -181,6 +181,16 @@
     {
       "type": "header",
       "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "header_style",
+      "label": "Header style",
+      "options": [
+        { "value": "centered", "label": "Centered, with a violet button" },
+        { "value": "split", "label": "Title left, underlined link right" }
+      ],
+      "default": "centered"
     },
     {
       "type": "select",
