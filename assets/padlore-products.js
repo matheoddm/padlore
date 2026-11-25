@@ -2,7 +2,8 @@
   PADLORE — Featured designs
   1. Phones: moves the violet bar and updates the "01 — 04" counter while the
      row of cards is swiped.
-  2. After the entrance has played, removes the stagger delays so hover
+  2. Phones: marks the snapped card as "is-active" (frosted bar visible).
+  3. After the entrance has played, removes the stagger delays so hover
      reacts immediately (adds "is-settled").
 */
 (function () {
@@ -39,6 +40,32 @@
     update();
   }
 
+  // Phones: the card snapped in the row is "active" (shows the frosted bar).
+  function initActive(section) {
+    var rail = section.querySelector('[data-padlore-rail]');
+    if (!rail || !('IntersectionObserver' in window)) return;
+    var items = Array.prototype.slice.call(rail.children);
+    if (!items.length) return;
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.intersectionRatio < 0.7) {
+            entry.target.classList.remove('is-active');
+            return;
+          }
+          items.forEach(function (item) {
+            item.classList.toggle('is-active', item === entry.target);
+          });
+        });
+      },
+      { root: rail, threshold: [0, 0.7, 1] }
+    );
+    items.forEach(function (item) {
+      observer.observe(item);
+    });
+  }
+
   function initSettle(section) {
     if (!('MutationObserver' in window)) return;
     var watcher = new MutationObserver(function () {
@@ -54,6 +81,7 @@
   function start() {
     document.querySelectorAll('.padlore-products').forEach(function (section) {
       initRail(section);
+      initActive(section);
       initSettle(section);
     });
   }

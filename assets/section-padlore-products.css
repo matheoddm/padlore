@@ -347,6 +347,83 @@
   }
 }
 
+/*
+  Phones (no hover): the card currently snapped in the row shows the same
+  frosted bar and badge (class "is-active", set by padlore-products.js).
+*/
+@media screen and (max-width: 749px) and (hover: none) {
+  .padlore-products__bar {
+    position: absolute;
+    left: 1.2rem;
+    right: 1.2rem;
+    bottom: 1.2rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.4rem;
+    border-radius: 1.2rem;
+    background-color: rgba(247, 247, 250, 0.8);
+    -webkit-backdrop-filter: blur(10px) saturate(1.2);
+    backdrop-filter: blur(10px) saturate(1.2);
+    box-shadow: 0 1.2rem 2.4rem -1.6rem rgba(18, 18, 26, 0.5);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #12121a;
+    transform: translateY(calc(100% + 1.6rem));
+    transition: transform 500ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+  }
+
+  .padlore-products__bar svg {
+    flex-shrink: 0;
+    color: var(--padlore-violet, #8b5cf6);
+  }
+
+  .padlore-products__chip {
+    position: absolute;
+    left: 1.2rem;
+    top: 1.2rem;
+    z-index: 2;
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border-radius: 10rem;
+    background-color: rgba(18, 18, 26, 0.55);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(-0.6rem);
+    transition: opacity 400ms ease, transform 450ms var(--padlore-ease-out, cubic-bezier(0.23, 1, 0.32, 1));
+  }
+
+  /* the bar replaces the round arrow */
+  .padlore-products__card:has(.padlore-products__bar) .padlore-products__go {
+    display: none;
+  }
+
+  .padlore-products__item.is-active .padlore-products__bar {
+    transform: none;
+  }
+
+  .padlore-products__item.is-active .padlore-products__chip {
+    opacity: 1;
+    transform: none;
+  }
+
+  .padlore-products__item.is-active .padlore-products__meta::after {
+    transform: scaleX(1);
+  }
+
+  .padlore-products__item.is-active .padlore-products__index {
+    color: var(--padlore-violet, #8b5cf6);
+  }
+}
+
 /* Number, name, price under a fine rule that turns violet. */
 .padlore-products__meta {
   position: relative;

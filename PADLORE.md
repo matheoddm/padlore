@@ -367,3 +367,6 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   rond reste sur téléphone). Textes réglables dans l'éditeur (« Hover bar
   label », « Hover badge » ; vide = masqué). La pastille ne doit afficher
   qu'une information vraie pour tous les produits.
+- Téléphone : la carte arrêtée dans la rangée défilante devient « active » et
+  affiche la même barre « View design → », la pastille « 30 Sizes », la ligne
+  et le numéro violets (équivalent tactile du survol).
