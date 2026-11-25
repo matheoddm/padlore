@@ -171,7 +171,7 @@ Référence : `CAHIER_DES_CHARGES.md` (cahier des charges officiel V1).
 | Accueil phase 1 | Bandeau d'annonce, header, hero                       | ✅ Validé (23/11/2026) |
 | Accueil phase 2 | Réassurance (index éditorial), 4 collections, raccords | ✅ Validé (23/11/2026) |
 | Accueil phase 3 | 4 produits, section personnalisation                  | ✅ Validé (25/11/2026) |
-| Accueil phase 4 | Pourquoi PADLORE, guide des tailles, FAQ              | À faire     |
+| Accueil phase 4 | Guide des tailles, FAQ (« Pourquoi PADLORE » reportée) | ⏭️ Prochaine |
 | Accueil phase 5 | Footer et finalisation                                | À faire     |
 | Ensuite | Logo, pages produit/collections, configurateur, livraison/devises (passer en EUR), pages légales | À faire |
 
@@ -387,3 +387,7 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   version. Règle : **jamais de `"default": ""`** dans un schéma de section
   (omettre la clé). Pour vérifier une synchronisation : Boutique en ligne →
   Thèmes → bouton « padlore/main ⌄ » → journaux de l'intégration GitHub.
+- Décision (25/11/2026) : la section « Pourquoi PADLORE » est **reportée**
+  (en attente de la confirmation fournisseur sur les bords cousus et la base
+  caoutchouc 2 mm ; idée : y raconter l'origine du nom). Prochaine étape :
+  aperçu du guide des tailles + FAQ (proposer deux directions avant de coder).
