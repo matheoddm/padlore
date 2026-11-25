@@ -358,3 +358,5 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
   rangée défilante avec compteur « 01 — 04 » et barre violette, flèche toujours
   visible et retour au toucher. Script : `assets/padlore-products.js`.
   Directions « Gallery Wall » et « Spotlight » proposées puis écartées.
+- « Featured designs. » : avec moins de 4 produits, les cartes gardent leur
+  taille et se centrent (plus de colonnes vides à droite).

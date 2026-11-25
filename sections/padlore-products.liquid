@@ -64,7 +64,21 @@
           {%- endif -%}
         </div>
 
-        <ul class="padlore-products__grid list-unstyled" role="list" data-padlore-rail>
+        {%- liquid
+          assign columns = chosen
+          if request.design_mode
+            assign columns = section.blocks.size
+          endif
+          if columns > 4
+            assign columns = 4
+          endif
+        -%}
+        <ul
+          class="padlore-products__grid list-unstyled{% if columns < 4 %} padlore-products__grid--few{% endif %}"
+          style="--padlore-products-count: {{ columns }};"
+          role="list"
+          data-padlore-rail
+        >
           {%- assign shown = 0 -%}
           {%- for block in section.blocks -%}
             {%- assign product = block.settings.product -%}
