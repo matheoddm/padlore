@@ -361,3 +361,9 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
 - « Featured designs. » : moins de blanc en haut et en bas (marges 88 → 56 px,
   écart titre/produits 5,6 → 4 rem). Le centrage automatique pour moins de
   4 produits a été annulé à la demande du fondateur.
+- « Featured designs. » : effet de survol n° 3 choisi par le fondateur — barre
+  givrée « View design → » qui monte en bas de l'image et pastille « 30 Sizes »
+  en haut (ordinateur uniquement ; remplace le rond fléché sur ordinateur, le
+  rond reste sur téléphone). Textes réglables dans l'éditeur (« Hover bar
+  label », « Hover badge » ; vide = masqué). La pastille ne doit afficher
+  qu'une information vraie pour tous les produits.

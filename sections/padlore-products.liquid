@@ -105,6 +105,17 @@
                           alt: ''
                       }}
                     {%- endif -%}
+                    {%- if section.settings.badge_text != blank -%}
+                      <span class="padlore-products__chip" aria-hidden="true">{{ section.settings.badge_text | escape }}</span>
+                    {%- endif -%}
+                    {%- if section.settings.view_label != blank -%}
+                      <span class="padlore-products__bar" aria-hidden="true">
+                        {{- section.settings.view_label | escape -}}
+                        <svg focusable="false" width="16" height="16" viewBox="0 0 20 20" fill="none">
+                          <path d="M4 10h11.5M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                    {%- endif -%}
                     <span class="padlore-products__go" aria-hidden="true">
                       <svg focusable="false" width="18" height="18" viewBox="0 0 20 20" fill="none">
                         <path d="M4 10h11.5M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -194,6 +205,20 @@
       "label": "Price prefix",
       "info": "Shown before the lowest price when sizes have different prices.",
       "default": "From"
+    },
+    {
+      "type": "text",
+      "id": "view_label",
+      "label": "Hover bar label",
+      "info": "Frosted bar shown on hover (computers). Leave empty to hide it.",
+      "default": "View design"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Hover badge",
+      "info": "Small badge shown on hover. Only state something true for every product. Leave empty to hide it.",
+      "default": "30 Sizes"
     },
     {
       "type": "checkbox",
