@@ -131,7 +131,7 @@ enregistrements automatiques de Shopify de la journée ont été contrôlés (le
 seul fichier écrasé a été restauré).
 
 **En attente de réponse du fondateur**
-1. Validation de la phase 3 (« The edit. » + « Make it yours. »).
+1. ~~Validation de la phase 3~~ : validée le 25/11/2026.
 2. ~~Marge de 24 px sur les boutons du hero~~ : faite (25/11/2026).
 
 **À faire par le fondateur dans Shopify**
@@ -162,7 +162,7 @@ Référence : `CAHIER_DES_CHARGES.md` (cahier des charges officiel V1).
 | 3     | Style général (polices, couleurs, boutons)                      | ✅ Validé   |
 | Accueil phase 1 | Bandeau d'annonce, header, hero                       | ✅ Validé (23/11/2026) |
 | Accueil phase 2 | Réassurance (index éditorial), 4 collections, raccords | ✅ Validé (23/11/2026) |
-| Accueil phase 3 | 4 produits, section personnalisation                  | ⏳ À valider |
+| Accueil phase 3 | 4 produits, section personnalisation                  | ✅ Validé (25/11/2026) |
 | Accueil phase 4 | Pourquoi PADLORE, guide des tailles, FAQ              | À faire     |
 | Accueil phase 5 | Footer et finalisation                                | À faire     |
 | Ensuite | Logo, pages produit/collections, configurateur, livraison/devises (passer en EUR), pages légales | À faire |
@@ -370,3 +370,6 @@ Les mises à jour de Dawn pourront être récupérées plus tard, avec précauti
 - Téléphone : la carte arrêtée dans la rangée défilante devient « active » et
   affiche la même barre « View design → », la pastille « 30 Sizes », la ligne
   et le numéro violets (équivalent tactile du survol).
+- **Accueil phase 3 validée** le 25/11/2026 (« Featured designs. » + « Make it
+  yours. »). Contrôle complet : theme check 0 erreur, JSON/JS/CSS valides,
+  simulation à 360–1920 px avec et sans animations sans problème.
