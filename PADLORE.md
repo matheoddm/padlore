@@ -5,6 +5,14 @@
 Thème Shopify Online Store 2.0 de la marque PADLORE, basé sur le thème
 officiel **Dawn 16.1.1** de Shopify (licence MIT, voir `LICENSE.md`).
 
+## Origine du nom
+
+- **PAD** : référence directe aux mouse pads et desk mats, donc aux produits.
+- **LORE** : mot anglais évoquant les histoires, les légendes et les univers.
+- D'où le slogan *Your Pad. Your Story.* : chaque tapis porte un univers.
+  À réutiliser (avec accord) dans « Pourquoi PADLORE », la page About et le
+  pied de page.
+
 ## Identité visuelle
 
 | Rôle          | Couleur   |
